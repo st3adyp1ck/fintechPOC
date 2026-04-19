@@ -31,7 +31,7 @@ DebtOptimize is a single-page application (SPA) built with React 19, TypeScript,
 │  │    │  Panel  │         │  Board  │  │Simulator│    │   │
 │  │    └─────────┘         └─────────┘  └─────────┘    │   │
 │  │                                                      │   │
-│  └─────────────────────────────────────────────────────┘   │
+  │  │                                                      │   │\n  │  │              ┌─────────────────────┐                │   │\n  │  │              │ NotificationCenter  │                │   │\n  │  │              │   (Global overlay)  │                │   │\n  │  │              └─────────────────────┘                │   │\n│  └─────────────────────────────────────────────────────┘   │
 │                           │                                  │
 │              ┌────────────┴────────────┐                    │
 │              │      AppContext         │                    │
@@ -72,7 +72,17 @@ interface AppState {
   eligibilityStatus: 'pending' | 'approved' | 'declined';
   idVerified: boolean;               // Identity verification complete
   creditChecked: boolean;            // Soft credit pull complete
-}
+
+  // Dashboard Feature Expansion
+  activityEvents: ActivityEvent[];   // Negotiation timeline events
+  escrowTransactions: EscrowTransaction[]; // Full escrow ledger
+  documents: VaultDocument[];        // Document vault library
+  creditHistory: CreditSnapshot[];   // 24-month score history
+  creditFactors: CreditFactor[];     // 5 credit health factors
+  rebuildTasks: RebuildTask[];       // Credit rebuilding checklist
+  notifications: Notification[];     // Unread + read notifications
+  messageThreads: MessageThread[];   // Secure negotiator messaging
+\n  // Dashboard Feature Expansion\n  activityEvents: ActivityEvent[];   // Negotiation timeline events\n  escrowTransactions: EscrowTransaction[]; // Full escrow ledger\n  documents: VaultDocument[];        // Document vault library\n  creditHistory: CreditSnapshot[];   // 24-month score history\n  creditFactors: CreditFactor[];     // 5 credit health factors\n  rebuildTasks: RebuildTask[];       // Credit rebuilding checklist\n  notifications: Notification[];     // Unread + read notifications\n  messageThreads: MessageThread[];   // Secure negotiator messaging\n}
 ```
 
 ### State Flow
@@ -137,11 +147,62 @@ Basic Info ──▶ Identity Verify ──▶ Credit Check ──▶ Debt Asses
 ### Dashboard
 **Purpose:** Primary user interface post-approval
 **Sub-components:**
-- **Metrics Grid** — 4 key cards with staggered entrance animations
+- **Metrics Grid** — 4 key cards with staggered entrance animations (Escrow Balance is clickable → ledger)
+- **Quick-Action Widgets** — Recent Activity (last 3 events), Action Required (unread notifs + unsigned docs), Credit Score (current + delta)
 - **Settlement Progress Bar** — Animated escrow accumulation tracker
 - **Creditor Table** — Sortable settlement status per card
 - **Comparison Cards** — Side-by-side "Without Settlement" vs "With DebtOptimize"
 - **AreaChart** — Debt balance over time with gradient fills
+
+### ActivityTimeline
+**Purpose:** Reverse-chronological feed of all negotiation events
+**Features:**
+- 11 event types with Lucide icon mapping and color coding
+- Creditor badges and relative timestamps
+- Filter pills: All / Settlements / Legal / Communications / Payments
+- Expandable detail cards with `AnimatePresence`
+
+### EscrowLedger
+**Purpose:** Full statement of every dollar in/out of escrow
+**Features:**
+- Hero metrics: current balance, month-over-month delta, next deposit date
+- Sortable/filterable table with sticky header
+- Type dropdown filter + date range filter (30/90/180 days)
+- CSV download of visible rows via Blob
+
+### DocumentVault
+**Purpose:** Secure-feeling document library
+**Features:**
+- Category tabs with counts (Enrollment, Settlement Agreements, Legal, Statements, Tax Forms, Correspondence)
+- Grid/list toggle
+- Preview modal with simulated HTML facsimile
+- Action-required banner for unsigned documents with due dates
+
+### CreditHealth
+**Purpose:** Credit score tracking and rebuilding guidance
+**Features:**
+- Hero score with bureau selector and delta arrow
+- Recharts line chart with milestone reference lines (Program started, First settlement, Last settlement)
+- 5 credit factor segmented bars
+- Rebuild checklist with animated checkboxes and "+X pts" floater on complete
+- Educational callout about temporary dips
+
+### NotificationCenter
+**Purpose:** Global notification bell dropdown in Layout top bar
+**Features:**
+- Unread count badge with animated scale entrance
+- Grouped by Today / This Week / Earlier
+- Click to mark-read or navigate to related view via `actionView`
+- "Mark all read" bulk action
+
+### Messages
+**Purpose:** Two-way secure messaging with negotiators
+**Features:**
+- Two-pane layout: thread list left, conversation right (stacks on mobile)
+- iMessage-style bubbles: user right-aligned gold, negotiator left-aligned cream
+- Simulated auto-replies via regex matcher with typing indicator
+- Attachment placeholder UI
+- Unread badge in sidebar nav
 
 ### AuthModal
 **Purpose:** Authentication gateway
@@ -266,9 +327,10 @@ See [`DESIGN.md`](./DESIGN.md) for the complete design system.
 
 1. **No external API calls** — All data is client-side, eliminating network latency
 2. **Memoized calculations** — `useMemo` on all chart data and comparison results
-3. **Lazy animation triggers** — `IntersectionObserver` for scroll-into-view animations
-4. **Custom scrollbar** — Slim 6px scrollbar to maximize content area
-5. **Noise texture via SVG** — Single inline SVG, no external image assets
+3. **Lazy-loaded routes** — All dashboard views loaded via `React.lazy()` + `Suspense`
+4. **Lazy animation triggers** — `IntersectionObserver` for scroll-into-view animations
+5. **Custom scrollbar** — Slim 6px scrollbar to maximize content area
+6. **Noise texture via SVG** — Single inline SVG, no external image assets
 
 ---
 

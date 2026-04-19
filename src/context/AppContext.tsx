@@ -1,7 +1,18 @@
 import { createContext, useContext, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
-import type { AppState, DebtCard, UserProfile, OnboardingStep, AppView } from '../types';
-import { DEFAULT_PROFILE, DEFAULT_CARDS } from '../data';
+import type { AppState, DebtCard, UserProfile, OnboardingStep, AppView, ActivityEvent, EscrowTransaction, VaultDocument, CreditSnapshot, CreditFactor, Message } from '../types';
+import {
+  DEFAULT_PROFILE,
+  DEFAULT_CARDS,
+  DEFAULT_ACTIVITY_EVENTS,
+  DEFAULT_ESCROW_TRANSACTIONS,
+  DEFAULT_DOCUMENTS,
+  DEFAULT_CREDIT_HISTORY,
+  DEFAULT_CREDIT_FACTORS,
+  DEFAULT_REBUILD_TASKS,
+  DEFAULT_NOTIFICATIONS,
+  DEFAULT_MESSAGE_THREADS,
+} from '../data';
 
 const initialState: AppState = {
   profile: DEFAULT_PROFILE,
@@ -16,6 +27,14 @@ const initialState: AppState = {
   eligibilityStatus: 'approved',
   idVerified: true,
   creditChecked: true,
+  activityEvents: DEFAULT_ACTIVITY_EVENTS,
+  escrowTransactions: DEFAULT_ESCROW_TRANSACTIONS,
+  documents: DEFAULT_DOCUMENTS,
+  creditHistory: DEFAULT_CREDIT_HISTORY,
+  creditFactors: DEFAULT_CREDIT_FACTORS,
+  rebuildTasks: DEFAULT_REBUILD_TASKS,
+  notifications: DEFAULT_NOTIFICATIONS,
+  messageThreads: DEFAULT_MESSAGE_THREADS,
 };
 
 interface AppContextType {
@@ -34,6 +53,17 @@ interface AppContextType {
   setIdVerified: (v: boolean) => void;
   setCreditChecked: (v: boolean) => void;
   resetToDemo: () => void;
+  addActivityEvent: (event: ActivityEvent) => void;
+  setEscrowTransactions: (transactions: EscrowTransaction[]) => void;
+  setDocuments: (documents: VaultDocument[]) => void;
+  setCreditHistory: (history: CreditSnapshot[]) => void;
+  setCreditFactors: (factors: CreditFactor[]) => void;
+  toggleRebuildTask: (taskId: string) => void;
+  markNotificationRead: (id: string) => void;
+  markAllNotificationsRead: () => void;
+  sendMessage: (threadId: string, body: string) => void;
+  markThreadRead: (threadId: string) => void;
+  addReplyToThread: (threadId: string, body: string) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -107,6 +137,94 @@ export function AppProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const addActivityEvent = useCallback((event: ActivityEvent) => {
+    setState((s) => ({ ...s, activityEvents: [event, ...s.activityEvents] }));
+  }, []);
+
+  const setEscrowTransactions = useCallback((transactions: EscrowTransaction[]) => {
+    setState((s) => ({ ...s, escrowTransactions: transactions }));
+  }, []);
+
+  const setDocuments = useCallback((documents: VaultDocument[]) => {
+    setState((s) => ({ ...s, documents }));
+  }, []);
+
+  const setCreditHistory = useCallback((history: CreditSnapshot[]) => {
+    setState((s) => ({ ...s, creditHistory: history }));
+  }, []);
+
+  const setCreditFactors = useCallback((factors: CreditFactor[]) => {
+    setState((s) => ({ ...s, creditFactors: factors }));
+  }, []);
+
+  const toggleRebuildTask = useCallback((taskId: string) => {
+    setState((s) => ({
+      ...s,
+      rebuildTasks: s.rebuildTasks.map((t) =>
+        t.id === taskId
+          ? { ...t, status: t.status === 'complete' ? 'not-started' : t.status === 'not-started' ? 'in-progress' : 'complete' as const }
+          : t
+      ),
+    }));
+  }, []);
+
+  const markNotificationRead = useCallback((id: string) => {
+    setState((s) => ({
+      ...s,
+      notifications: s.notifications.map((n) => (n.id === id ? { ...n, read: true } : n)),
+    }));
+  }, []);
+
+  const markAllNotificationsRead = useCallback(() => {
+    setState((s) => ({
+      ...s,
+      notifications: s.notifications.map((n) => ({ ...n, read: true })),
+    }));
+  }, []);
+
+  const sendMessage = useCallback((threadId: string, body: string) => {
+    const newMessage: Message = {
+      id: `msg-${Date.now()}`,
+      sender: 'user',
+      body,
+      timestamp: new Date().toISOString(),
+      read: true,
+    };
+    setState((s) => ({
+      ...s,
+      messageThreads: s.messageThreads.map((t) =>
+        t.id === threadId ? { ...t, messages: [...t.messages, newMessage] } : t
+      ),
+    }));
+  }, []);
+
+  const markThreadRead = useCallback((threadId: string) => {
+    setState((s) => ({
+      ...s,
+      messageThreads: s.messageThreads.map((t) =>
+        t.id === threadId
+          ? { ...t, messages: t.messages.map((m) => ({ ...m, read: true })) }
+          : t
+      ),
+    }));
+  }, []);
+
+  const addReplyToThread = useCallback((threadId: string, body: string) => {
+    const reply: Message = {
+      id: `msg-${Date.now()}`,
+      sender: 'negotiator',
+      body,
+      timestamp: new Date().toISOString(),
+      read: true,
+    };
+    setState((s) => ({
+      ...s,
+      messageThreads: s.messageThreads.map((t) =>
+        t.id === threadId ? { ...t, messages: [...t.messages, reply] } : t
+      ),
+    }));
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -125,6 +243,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
         setIdVerified,
         setCreditChecked,
         resetToDemo,
+        addActivityEvent,
+        setEscrowTransactions,
+        setDocuments,
+        setCreditHistory,
+        setCreditFactors,
+        toggleRebuildTask,
+        markNotificationRead,
+        markAllNotificationsRead,
+        sendMessage,
+        markThreadRead,
+        addReplyToThread,
       }}
     >
       {children}
@@ -132,6 +261,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useApp() {
   const context = useContext(AppContext);
   if (!context) throw new Error('useApp must be used within AppProvider');

@@ -1,0 +1,316 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - img [ref=e9]
+          - generic [ref=e11]: DebtOptimize
+        - generic [ref=e12]:
+          - link "How It Works" [ref=e13] [cursor=pointer]:
+            - /url: "#how-it works"
+          - link "Why Us" [ref=e14] [cursor=pointer]:
+            - /url: "#why-us"
+          - link "Calculator" [ref=e15] [cursor=pointer]:
+            - /url: "#calculator"
+          - link "FAQ" [ref=e16] [cursor=pointer]:
+            - /url: "#faq"
+          - button "Sign In" [ref=e17]
+          - button "Check Eligibility" [ref=e18]
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - img [ref=e27]
+          - text: Trusted by 50,000+ Americans
+        - heading "Stop drowning in debt. Start living." [level=1] [ref=e29]:
+          - text: Stop drowning
+          - text: in debt.
+          - text: Start living.
+        - paragraph [ref=e30]: The middle class deserves better than 29% APR. We negotiate your credit card debt down by an average of 52% — with no upfront fees, legal protection included, and a credit rebuilding program that actually works.
+        - generic [ref=e31]:
+          - button "Check If I Qualify" [ref=e32]:
+            - text: Check If I Qualify
+            - img [ref=e33]
+          - button "Calculate My Savings" [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - img [ref=e38]
+            - text: No upfront fees
+          - generic [ref=e41]:
+            - img [ref=e42]
+            - text: Soft credit pull
+          - generic [ref=e45]:
+            - img [ref=e46]
+            - text: Takes 2 minutes
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - img [ref=e55]
+          - generic [ref=e58]:
+            - paragraph [ref=e59]: Real Client Result
+            - paragraph [ref=e60]: Sarah K. from Austin, TX
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - paragraph [ref=e63]: Debt Before
+            - paragraph [ref=e64]: $34,200
+          - generic [ref=e65]:
+            - paragraph [ref=e66]: Settled For
+            - paragraph [ref=e67]: $16,400
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: Amex
+            - generic [ref=e72]: 52% off
+          - generic [ref=e73]:
+            - generic [ref=e74]: Chase
+            - generic [ref=e76]: 53% off
+          - generic [ref=e77]:
+            - generic [ref=e78]: Citi
+            - generic [ref=e80]: 50% off
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - paragraph [ref=e88]:
+          - generic [ref=e89]: $0B+
+        - paragraph [ref=e90]: Debt Negotiated
+      - generic [ref=e91]:
+        - paragraph [ref=e92]:
+          - generic [ref=e93]: 0%
+        - paragraph [ref=e94]: Avg. Reduction
+      - generic [ref=e95]:
+        - paragraph [ref=e96]:
+          - generic [ref=e97]: 0+
+        - paragraph [ref=e98]: Clients Served
+      - generic [ref=e99]:
+        - paragraph [ref=e100]:
+          - generic [ref=e101]: 0/5
+        - paragraph [ref=e102]: Trustpilot Rating
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - paragraph [ref=e106]: The Problem
+        - heading "The Middle Class Debt Trap" [level=2] [ref=e107]:
+          - text: The Middle Class
+          - text: Debt Trap
+        - paragraph [ref=e108]: You earn too much for bankruptcy help, but not enough to keep up with 29% interest. Banks will not consolidate your debt because your credit score took a hit. You are stuck — and that is exactly where they want you.
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - img [ref=e112]
+          - heading "The Working Class" [level=3] [ref=e117]
+          - paragraph [ref=e118]: Struggling to make minimum payments. Often targeted by predatory lenders. Bankruptcy may be the only option — but it destroys credit for 7-10 years.
+        - generic [ref=e119]:
+          - img [ref=e121]
+          - heading "The Upper Class" [level=3] [ref=e124]
+          - paragraph [ref=e125]: Access to low-interest consolidation loans, financial advisors, and tax strategies. They do not need our help — they already have options.
+        - generic [ref=e126]:
+          - img [ref=e128]
+          - heading "The Middle Class" [level=3] [ref=e130]
+          - paragraph [ref=e131]: That is you. Earn $50K-$150K. Too much debt to manage, not enough to pay it off. Denied for consolidation. This is who we built DebtOptimize for.
+    - generic [ref=e133]:
+      - generic [ref=e134]:
+        - paragraph [ref=e135]: The Process
+        - heading "How It Works" [level=2] [ref=e136]
+        - paragraph [ref=e137]: No loans. No new credit checks. Just expert negotiators fighting to reduce what you owe.
+      - generic [ref=e138]:
+        - generic [ref=e139]:
+          - generic [ref=e140]: "01"
+          - heading "Free Eligibility Check" [level=3] [ref=e141]
+          - paragraph [ref=e142]: Answer a few questions. We run a soft credit pull and verify your identity. No impact on your credit score.
+          - img [ref=e145]
+        - generic [ref=e147]:
+          - generic [ref=e148]: "02"
+          - heading "Build Your Escrow" [level=3] [ref=e149]
+          - paragraph [ref=e150]: Stop paying creditors. Deposit an affordable monthly amount into your FDIC-insured escrow account instead.
+          - img [ref=e153]
+        - generic [ref=e155]:
+          - generic [ref=e156]: "03"
+          - heading "We Negotiate Hard" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Our expert negotiators contact your creditors and fight for the lowest possible settlement on your behalf.
+          - img [ref=e161]
+        - generic [ref=e163]:
+          - generic [ref=e164]: "04"
+          - heading "Settle & Rebuild" [level=3] [ref=e165]
+          - paragraph [ref=e166]: Pay the settlement from escrow. Get debt-free faster. Then join our free credit rebuilding program.
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - paragraph [ref=e171]: Why Us
+        - heading "Built Different" [level=2] [ref=e172]
+        - paragraph [ref=e173]: Most debt settlement companies hide fees, ignore your calls, and leave you exposed to lawsuits. We fixed every broken part.
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - img [ref=e177]
+          - heading "No Upfront Fees" [level=3] [ref=e179]
+          - paragraph [ref=e180]: We only get paid when we successfully reduce your debt. No hidden charges, no setup costs, no monthly retainers.
+        - generic [ref=e181]:
+          - img [ref=e183]
+          - heading "Legal Protection Included" [level=3] [ref=e187]
+          - paragraph [ref=e188]: Our network of attorneys protects you from creditor harassment, lawsuits, and wage garnishment while we negotiate.
+        - generic [ref=e189]:
+          - img [ref=e191]
+          - heading "FDIC-Insured Escrow" [level=3] [ref=e194]
+          - paragraph [ref=e195]: Your monthly deposits are held in a secure, FDIC-insured escrow account. You control it. You can withdraw anytime.
+        - generic [ref=e196]:
+          - img [ref=e198]
+          - heading "Real-Time Negotiations" [level=3] [ref=e200]
+          - paragraph [ref=e201]: Watch our negotiators work in real-time. See every offer, counter-offer, and settlement as it happens.
+        - generic [ref=e202]:
+          - img [ref=e204]
+          - heading "Credit Rebuilding Program" [level=3] [ref=e207]
+          - paragraph [ref=e208]: Debt relief is just the start. Our free credit rebuilding program helps you recover to 700+ within 24 months.
+        - generic [ref=e209]:
+          - img [ref=e211]
+          - heading "Average 52% Reduction" [level=3] [ref=e215]
+          - paragraph [ref=e216]: Our clients settle for an average of 48 cents on the dollar. That is $14,400 saved on a $30,000 debt load.
+    - generic [ref=e221]:
+      - generic [ref=e222]:
+        - paragraph [ref=e223]: Savings Calculator
+        - heading "See How Much You Could Save" [level=2] [ref=e224]
+        - paragraph [ref=e225]: Move the slider to match your total unsecured debt.
+      - generic [ref=e226]:
+        - slider "Total unsecured debt" [ref=e227] [cursor=pointer]: "30000"
+        - generic [ref=e228]:
+          - generic [ref=e229]: $5,000
+          - generic [ref=e230]: $30,000
+          - generic [ref=e231]: $100,000
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - paragraph [ref=e234]: Total Debt
+          - paragraph [ref=e235]: $30,000
+        - generic [ref=e236]:
+          - paragraph [ref=e237]: Est. Settlement
+          - paragraph [ref=e238]: $14,400
+        - generic [ref=e239]:
+          - paragraph [ref=e240]: You Save
+          - paragraph [ref=e241]: $15,600
+      - button "Get My Free Savings Estimate" [ref=e242]:
+        - text: Get My Free Savings Estimate
+        - img [ref=e243]
+      - paragraph [ref=e245]: Based on average settlement of 48% of enrolled debt. Results vary. Free consultation.
+    - generic [ref=e247]:
+      - generic [ref=e248]:
+        - paragraph [ref=e249]: Testimonials
+        - heading "Real People. Real Relief." [level=2] [ref=e250]
+      - generic [ref=e251]:
+        - generic [ref=e252]:
+          - generic [ref=e253]:
+            - img [ref=e254]
+            - img [ref=e256]
+            - img [ref=e258]
+            - img [ref=e260]
+            - img [ref=e262]
+          - paragraph [ref=e264]: "\"I was paying $900 a month in minimum payments and my balances were going UP. DebtOptimize settled all 4 cards for less than half. I am debt-free in 3 years instead of never.\""
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - paragraph [ref=e267]: Marcus T.
+              - paragraph [ref=e268]: Phoenix, AZ
+            - generic [ref=e269]:
+              - paragraph [ref=e270]: Saved
+              - paragraph [ref=e271]: $15,200
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - img [ref=e274]
+            - img [ref=e276]
+            - img [ref=e278]
+            - img [ref=e280]
+            - img [ref=e282]
+          - paragraph [ref=e284]: "\"The legal protection was a lifesaver. One creditor sued me and DebtOptimize attorneys handled everything. I did not pay a dime extra. Best decision I ever made.\""
+          - generic [ref=e285]:
+            - generic [ref=e286]:
+              - paragraph [ref=e287]: Jennifer L.
+              - paragraph [ref=e288]: Atlanta, GA
+            - generic [ref=e289]:
+              - paragraph [ref=e290]: Saved
+              - paragraph [ref=e291]: $22,800
+        - generic [ref=e292]:
+          - generic [ref=e293]:
+            - img [ref=e294]
+            - img [ref=e296]
+            - img [ref=e298]
+            - img [ref=e300]
+            - img [ref=e302]
+          - paragraph [ref=e304]: "\"I was embarrassed about my debt. The team never made me feel judged. They explained everything, showed me the dashboard, and I watched my settlements happen in real time.\""
+          - generic [ref=e305]:
+            - generic [ref=e306]:
+              - paragraph [ref=e307]: David R.
+              - paragraph [ref=e308]: Denver, CO
+            - generic [ref=e309]:
+              - paragraph [ref=e310]: Saved
+              - paragraph [ref=e311]: $9,800
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - paragraph [ref=e315]: FAQ
+        - heading "Questions? Answered." [level=2] [ref=e316]
+      - generic [ref=e317]:
+        - button "Will this hurt my credit score?" [ref=e319]:
+          - generic [ref=e320]: Will this hurt my credit score?
+          - img [ref=e322]
+        - button "How is this different from debt consolidation?" [ref=e325]:
+          - generic [ref=e326]: How is this different from debt consolidation?
+          - img [ref=e328]
+        - button "What if a creditor sues me?" [ref=e331]:
+          - generic [ref=e332]: What if a creditor sues me?
+          - img [ref=e334]
+        - button "Can I withdraw money from escrow?" [ref=e337]:
+          - generic [ref=e338]: Can I withdraw money from escrow?
+          - img [ref=e340]
+        - button "How long does the program take?" [ref=e343]:
+          - generic [ref=e344]: How long does the program take?
+          - img [ref=e346]
+    - generic [ref=e351]:
+      - heading "Ready to Take Control?" [level=2] [ref=e352]:
+        - text: Ready to Take
+        - text: Control?
+      - paragraph [ref=e353]: Join 50,000+ middle-class Americans who refused to let credit card debt define their lives. Your free eligibility check takes 2 minutes and does not affect your credit score.
+      - button "Check My Eligibility — Free" [ref=e354]
+      - paragraph [ref=e355]: No upfront fees. No obligation. No hard credit inquiry.
+    - contentinfo [ref=e356]:
+      - generic [ref=e357]:
+        - generic [ref=e358]:
+          - generic [ref=e359]:
+            - generic [ref=e360]:
+              - img [ref=e362]
+              - generic [ref=e364]: DebtOptimize
+            - paragraph [ref=e365]: Helping middle-class Americans break free from high-interest credit card debt through negotiation, not loans.
+          - generic [ref=e366]:
+            - heading "Company" [level=4] [ref=e367]
+            - list [ref=e368]:
+              - listitem [ref=e369]:
+                - link "About Us" [ref=e370] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e371]:
+                - link "How It Works" [ref=e372] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e373]:
+                - link "Pricing" [ref=e374] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e375]:
+                - link "Careers" [ref=e376] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=e377]:
+            - heading "Support" [level=4] [ref=e378]
+            - list [ref=e379]:
+              - listitem [ref=e380]:
+                - link "Help Center" [ref=e381] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e382]:
+                - link "Contact Us" [ref=e383] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e384]:
+                - link "Legal Protection" [ref=e385] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e386]:
+                - link "Credit Rebuilding" [ref=e387] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=e388]:
+            - heading "Contact" [level=4] [ref=e389]
+            - list [ref=e390]:
+              - listitem [ref=e391]:
+                - img [ref=e392]
+                - text: (800) 555-DEBT
+              - listitem [ref=e394]:
+                - img [ref=e395]
+                - text: help@debtoptimize.com
+              - listitem [ref=e398]:
+                - img [ref=e399]
+                - text: Austin, TX
+        - generic [ref=e402]:
+          - paragraph [ref=e403]: DebtOptimize is a debt settlement company. We do not provide loans, credit repair, or bankruptcy services. Results vary and are not guaranteed. Not available in all states.
+          - paragraph [ref=e404]: This site is not a part of the Facebook website or Facebook Inc. Testimonials are from actual clients. Individual results will vary.
+  - button "Open AI Assistant" [ref=e405]:
+    - img [ref=e407]
+    - generic: AI Assistant

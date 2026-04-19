@@ -163,9 +163,16 @@ VITE_SENTRY_DSN=https://...
 
 ### Current Bundle Size
 
+With route-based code splitting, the main bundle is smaller and dashboard views load on demand:
+
 ```
-dist/assets/index-XXXXXX.js    ~800 KB (gzipped: ~237 KB)
-dist/assets/index-XXXXXX.css    ~48 KB (gzipped: ~8.8 KB)
+dist/assets/index-XXXXXX.js           ~62 KB (gzipped: ~17 KB)
+dist/assets/vendor-react-XXXXXX.js    ~190 KB (gzipped: ~61 KB)
+dist/assets/vendor-charts-XXXXXX.js   ~376 KB (gzipped: ~109 KB)
+dist/assets/Dashboard-XXXXXX.js       ~16 KB (gzipped: ~4 KB)
+dist/assets/CreditHealth-XXXXXX.js    ~8 KB (gzipped: ~3 KB)
+dist/assets/Messages-XXXXXX.js        ~8 KB (gzipped: ~3 KB)
+dist/assets/index-XXXXXX.css          ~56 KB (gzipped: ~10 KB)
 ```
 
 ### Optimization Checklist

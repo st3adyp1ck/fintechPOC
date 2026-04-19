@@ -148,6 +148,71 @@ export default function ChatBot() {
         return `I can help you with:\n\n• Your total debt and creditor breakdown\n• Estimated settlement savings and timeline\n• Escrow balance and progress toward your target\n• Understanding fees and the settlement process\n• Credit score impact and rebuilding strategies\n• Details on any specific creditor\n\nJust ask me anything about your debt or the DebtOptimize program!`;
       }
 
+      // Documents
+      if (/\b(document|paperwork|vault|form|agreement|contract|1099|signature)\b/.test(text)) {
+        const unsigned = state.documents.filter((d) => d.status === 'unsigned').length;
+        const pending = state.documents.filter((d) => d.status === 'pending').length;
+        return `You have **${state.documents.length}** documents in your Document Vault.
+
+• **Signed**: ${state.documents.filter((d) => d.status === 'signed').length}
+• **Unsigned**: ${unsigned}${unsigned > 0 ? ' — please review and sign these promptly' : ''}
+• **Pending**: ${pending}
+
+You can view, preview, and download any document from the **Documents** page in the sidebar. All files are simulated for demo purposes.`;
+      }
+
+      // Activity / timeline
+      if (/\b(activity|update|what.*new|what.*happen|timeline|recent|negotiation.*status)\b/.test(text)) {
+        const recent = state.activityEvents
+          .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+          .slice(0, 3);
+        const lines = recent.map((e) => `• **${e.title}** (${state.cards.find((c) => c.id === e.creditorId)?.creditor || 'General'})`).join('\n');
+        return `Here are your 3 most recent activity events:
+
+${lines}
+
+For the full negotiation timeline, visit the **Activity** page in the sidebar. All events are simulated for demo purposes.`;
+      }
+
+      // Credit score specific
+      if (/\b(credit score|current score|fico score|what.*score|my score)\b/.test(text)) {
+        const current = state.creditHistory[state.creditHistory.length - 1]?.score ?? 620;
+        const prev = state.creditHistory[state.creditHistory.length - 2]?.score ?? 620;
+        const delta = current - prev;
+        return `Your current estimated credit score is **${current}** (Experian).
+
+• Change vs last month: **${delta > 0 ? '+' : ''}${delta}**
+• Credit factors: Payment History (${state.creditFactors[0].score}/100), Utilization (${state.creditFactors[1].score}/100)
+• Rebuilding tasks complete: **${state.rebuildTasks.filter((t) => t.status === 'complete').length} of ${state.rebuildTasks.length}**
+
+Check the **Credit Health** page for your full recovery chart and checklist. Scores are estimates for demo purposes.`;
+      }
+
+      // Notifications / action items
+      if (/\b(notification|alert|action.*required|what.*need.*do|to-do|task)\b/.test(text)) {
+        const unread = state.notifications.filter((n) => !n.read).length;
+        const actionRequired = state.notifications.filter((n) => n.type === 'action-required' && !n.read).length;
+        return `You have **${unread}** unread notification${unread === 1 ? '' : 's'}.
+
+• Action-required: **${actionRequired}**
+
+Click the bell icon in the top bar to view and manage your notifications. You can also visit **Messages** to chat directly with your negotiator. Notifications are simulated for demo purposes.`;
+      }
+
+      // Messages / negotiator contact
+      if (/\b(message|negotiator|contact|chat|speak.*someone|reach.*someone|support team)\b/.test(text)) {
+        const unreadMsgs = state.messageThreads.reduce(
+          (sum, t) => sum + t.messages.filter((m) => m.sender !== 'user' && !m.read).length,
+          0
+        );
+        return `You can message your negotiator directly from the **Messages** page.
+
+• Active threads: **${state.messageThreads.length}**
+• Unread replies: **${unreadMsgs}**
+
+Your dedicated team includes senior negotiators and legal support. Response times are typically within 1 business day. Messages are simulated for demo purposes.`;
+      }
+
       // Goodbye
       if (/\b(bye|goodbye|see you|thanks|thank you|appreciate)\b/.test(text)) {
         return `You're very welcome, ${state.profile.firstName}! I'm here whenever you need clarity on your debt journey. Remember: every month in this program is a month closer to freedom. You've got this! 🎉`;
@@ -162,6 +227,13 @@ export default function ChatBot() {
       state.totalMonthlyPayment,
       state.platformFee,
       state.escrowBalance,
+      state.documents,
+      state.activityEvents,
+      state.creditHistory,
+      state.creditFactors,
+      state.rebuildTasks,
+      state.notifications,
+      state.messageThreads,
       totalBalance,
       settlement,
       comparison,

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { motion } from 'framer-motion';
 import {
@@ -9,16 +10,47 @@ import {
   Wallet,
   ToggleLeft,
   ToggleRight,
+  Activity,
+  Receipt,
+  FolderLock,
+  LineChart,
+  MessageSquare,
 } from 'lucide-react';
+import NotificationCenter from './NotificationCenter';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { state, setCurrentView, setAdminMode, resetToDemo, toggleDemoMode } = useApp();
+  const [notifOpen, setNotifOpen] = useState(false);
 
   const navItems = [
     { id: 'dashboard' as const, label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'activity' as const, label: 'Activity', icon: Activity },
+    { id: 'escrow' as const, label: 'Escrow Ledger', icon: Receipt },
+    { id: 'documents' as const, label: 'Documents', icon: FolderLock },
+    { id: 'credit' as const, label: 'Credit Health', icon: LineChart },
     { id: 'simulator' as const, label: 'Impact Simulator', icon: BarChart3 },
     { id: 'creditors' as const, label: 'Creditors', icon: Building2 },
+    { id: 'messages' as const, label: 'Messages', icon: MessageSquare },
   ];
+
+  const unreadMessages = state.messageThreads.reduce(
+    (sum, t) => sum + t.messages.filter((m) => m.sender !== 'user' && !m.read).length,
+    0
+  );
+
+  const viewTitles: Record<string, { title: string; subtitle: string }> = {
+    dashboard: { title: 'My Debt Settlement Dashboard', subtitle: 'Track settlements, escrow, and your path to freedom' },
+    simulator: { title: 'Impact Simulator', subtitle: 'See how negotiation power affects your timeline' },
+    creditors: { title: 'Creditor Negotiations', subtitle: 'Monitor negotiation status with each creditor' },
+    admin: { title: 'Admin Controls', subtitle: 'Manage rates, fees, and platform settings' },
+    activity: { title: 'Activity Timeline', subtitle: 'Every negotiation event across all creditors' },
+    escrow: { title: 'Escrow Ledger', subtitle: 'Full statement of every dollar in and out' },
+    documents: { title: 'Document Vault', subtitle: 'All program paperwork in one secure place' },
+    credit: { title: 'Credit Health', subtitle: 'Track recovery and rebuild your score' },
+    messages: { title: 'Secure Messages', subtitle: 'Message your negotiator directly' },
+  };
+
+  const currentMeta = viewTitles[state.currentView] ?? { title: '', subtitle: '' };
 
   return (
     <div className="min-h-screen bg-cream-50 flex">
@@ -36,7 +68,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </motion.div>
         </div>
 
-        <nav className="flex-1 p-4 space-y-1">
+        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = state.currentView === item.id;
@@ -56,7 +88,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 }`}
               >
                 <Icon className="w-4 h-4" />
-                {item.label}
+                <span className="flex-1 text-left">{item.label}</span>
+                {item.id === 'messages' && unreadMessages > 0 && (
+                  <span className="ml-auto text-[10px] font-bold bg-rose-500 text-white px-1.5 py-0.5 rounded-full">
+                    {unreadMessages}
+                  </span>
+                )}
               </motion.button>
             );
           })}
@@ -101,18 +138,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <header className="bg-cream-50/80 backdrop-blur-xl border-b border-cream-300 px-8 py-4 sticky top-0 z-10">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-xl font-bold text-navy-900">
-                {state.currentView === 'dashboard' && 'My Debt Settlement Dashboard'}
-                {state.currentView === 'simulator' && 'Impact Simulator'}
-                {state.currentView === 'creditors' && 'Creditor Negotiations'}
-                {state.currentView === 'admin' && 'Admin Controls'}
-              </h1>
-              <p className="text-sm text-navy-400 mt-0.5">
-                {state.currentView === 'dashboard' && 'Track settlements, escrow, and your path to freedom'}
-                {state.currentView === 'simulator' && 'See how negotiation power affects your timeline'}
-                {state.currentView === 'creditors' && 'Monitor negotiation status with each creditor'}
-                {state.currentView === 'admin' && 'Manage rates, fees, and platform settings'}
-              </p>
+              <h1 className="text-xl font-bold text-navy-900">{currentMeta.title}</h1>
+              <p className="text-sm text-navy-400 mt-0.5">{currentMeta.subtitle}</p>
             </div>
             <div className="flex items-center gap-4">
               <motion.button
@@ -128,6 +155,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 )}
                 Demo Mode
               </motion.button>
+
+              <div className="relative">
+                <NotificationCenter isOpen={notifOpen} onClose={() => setNotifOpen(false)} />
+                <div
+                  className="absolute inset-0 cursor-pointer"
+                  onClick={() => setNotifOpen((v) => !v)}
+                />
+              </div>
+
               <div className="text-right">
                 <p className="text-sm font-bold text-navy-900">
                   {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(state.escrowBalance)}

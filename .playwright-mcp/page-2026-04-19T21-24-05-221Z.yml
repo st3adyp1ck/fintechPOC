@@ -1,0 +1,16 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - heading "📝 QuickNotes" [level=1] [ref=e4]
+    - paragraph [ref=e5]: Online
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - textbox "Type a note and press Enter..." [active] [ref=e8]
+      - button "Add" [ref=e9] [cursor=pointer]
+    - list [ref=e17]:
+      - listitem [ref=e18]:
+        - generic [ref=e19]: My first offline note!
+        - generic [ref=e20]: 03:24 PM
+        - button "Delete note" [ref=e21] [cursor=pointer]: 🗑️
+  - contentinfo [ref=e14]:
+    - button "📲 Install App" [ref=e15] [cursor=pointer]
+    - generic [ref=e16]: QuickNotes PWA Demo • Works Offline

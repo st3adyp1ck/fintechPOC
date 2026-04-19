@@ -65,22 +65,22 @@ clients exposed to creditor lawsuits. **DebtOptimize was built differently:**
 │                      DebtOptimize SPA                        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │   Landing    │  │  Onboarding  │  │   Dashboard  │     │
-│  │    Page      │  │    Flow      │  │    Suite     │     │
-│  └──────────────┘  └──────────────┘  └──────────────┘     │
-│         │                 │                 │               │
-│         └─────────────────┼─────────────────┘               │
+│  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐│
+│  │   Landing    │  │  Onboarding  │  │   Dashboard Suite  ││
+│  │    Page      │  │    Flow      │  │ Activity · Escrow  ││
+│  └──────────────┘  └──────────────┘  │ Documents · Credit ││
+│         │                 │          │ Messages · Admin   ││
+│         └─────────────────┼──────────┴────────────────────┘│
 │                           │                                  │
 │              ┌────────────┴────────────┐                    │
 │              │     React Context        │                    │
 │              │    (Global State)        │                    │
 │              └────────────┬────────────┘                    │
 │                           │                                  │
-│  ┌──────────┬──────────┬─┴─┬──────────┬──────────┐        │
-│  │  Auth    │  Debt    │   │  Admin   │  Impact  │        │
-│  │  Modal   │ Engine   │   │  Panel   │ Simulator│        │
-│  └──────────┴──────────┴───┴──────────┴──────────┘        │
+│  ┌──────────┬──────────┬─┴─┬──────────┬──────────┬────────┐│
+│  │  Auth    │  Debt    │   │  Admin   │  Impact  │ Notif. ││
+│  │  Modal   │ Engine   │   │  Panel   │ Simulator│Center  ││
+│  └──────────┴──────────┴───┴──────────┴──────────┴────────┘│
 │                                                              │
 ├─────────────────────────────────────────────────────────────┤
 │  React 19 · TypeScript · Vite · Tailwind CSS v4            │
@@ -117,17 +117,54 @@ Two production-grade authentication flows:
 - **✉️ Email Magic Link** — Passwordless login with "Check your inbox" confirmation screen
 
 ### 4. Interactive Dashboard
-- **Escrow balance tracking** with animated progress bar toward settlement target
+- **Escrow balance tracking** with animated progress bar toward settlement target — *click to view full ledger*
 - **Creditor settlement table** — balance, offer amount, savings per card, negotiation status
 - **Side-by-side comparison** — "Without Settlement" vs "With DebtOptimize"
 - **Balance-over-time chart** — Area chart comparing full-balance payoff vs. negotiated settlement path
+- **Quick-action widgets** — Recent Activity feed, Action Required counter, Credit Score snapshot
 
-### 5. Impact Simulator (The "Wow" Feature)
+### 5. Activity Timeline
+A reverse-chronological negotiation feed that proves the platform is working:
+- **11 event types** — outreach, counter-offers, settlements, payments, legal updates, calls, letters
+- **Color-coded icons** per event type with creditor badges
+- **Filter pills** — All, Settlements, Legal, Communications, Payments
+- **Expandable cards** with relative timestamps and detailed metadata
+
+### 6. Escrow Activity Ledger
+Full FDIC-insured escrow transparency:
+- **Every transaction** — deposits, platform fees, settlement payouts, interest, adjustments
+- **Running balance** column showing account state after each entry
+- **Type & date range filters** with sticky table header
+- **CSV download** of visible rows for record-keeping
+
+### 7. Document Vault
+Secure document library for compliance and trust:
+- **6 categories** — Enrollment, Settlement Agreements, Legal, Statements, Tax Forms, Correspondence
+- **Grid / list toggle** with status badges (signed, unsigned, pending)
+- **Preview modal** with simulated document facsimile
+- **Action-required banner** when documents await signature
+
+### 8. Credit Health & Rebuilding Tracker
+Closes the loop on the landing page's "Credit Rebuilding Program" promise:
+- **24-month score history** with realistic dip-then-recovery curve
+- **Bureau selector** (Experian / TransUnion / Equifax)
+- **Credit factors** — segmented progress bars for payment history, utilization, age, mix, inquiries
+- **Rebuilding checklist** — 6–8 tasks with animated completion and point-floaters
+- **Educational callout** explaining temporary score dips are normal
+
+### 9. Notifications + Secure Messages
+Makes the dashboard feel alive and two-way:
+- **Notification center** — bell dropdown grouped by Today / This Week / Earlier with unread badges
+- **Contextual actions** — click a notification to jump directly to the related view
+- **Secure messaging** — two-pane thread layout with iMessage-style bubbles
+- **Simulated negotiator replies** — contextual auto-responses with typing indicators
+
+### 10. Impact Simulator (The "Wow" Feature)
 - **Per-card settlement slider** — drag to simulate different negotiation outcomes
 - **Real-time metrics update** — additional savings, settlement percentage, total cost
 - **Reference-line chart** — visual payoff curve with "Simulated Payoff" and "Status Quo" markers
 
-### 6. Admin Controls
+### 11. Admin Controls
 - Toggle negotiated APRs per creditor
 - Adjust platform fee with live impact calculation
 - Overview cards showing weighted APRs and projected savings
@@ -205,13 +242,19 @@ debt-optimize/
 │   │   ├── LandingPage.tsx        # Public landing page
 │   │   ├── Onboarding.tsx         # 5-step eligibility flow
 │   │   ├── Dashboard.tsx          # Main user dashboard
+│   │   ├── ActivityTimeline.tsx   # Negotiation event feed
+│   │   ├── EscrowLedger.tsx       # Full escrow statement
+│   │   ├── DocumentVault.tsx      # Secure document library
+│   │   ├── CreditHealth.tsx       # Score tracker & rebuild checklist
+│   │   ├── NotificationCenter.tsx # Bell dropdown panel
+│   │   ├── Messages.tsx           # Secure negotiator messaging
 │   │   ├── AdminPanel.tsx         # Admin controls
 │   │   ├── CreditorBoard.tsx      # Creditor negotiation status
 │   │   ├── ScenarioSimulator.tsx  # Settlement impact slider
 │   │   ├── AuthModal.tsx          # Google OAuth + Magic Link
 │   │   ├── CustomCursor.tsx       # Custom cursor component
 │   │   ├── GrainOverlay.tsx       # SVG noise texture
-│   │   └── Layout.tsx             # Dashboard sidebar layout
+│   │   └── Layout.tsx             # Dashboard sidebar + top bar
 │   │
 │   ├── context/
 │   │   └── AppContext.tsx         # Global state (React Context)
@@ -310,7 +353,8 @@ qualify for traditional consolidation loans.
 The prototype includes a **Demo Mode toggle** in the dashboard header for client presentations:
 
 - Pre-populated with a realistic borrower profile: **$30,000 debt** across 3 cards
-- One-click **Reset Demo** button to restore default state
+- **18 months of escrow transactions**, **20+ negotiation events**, **14 documents**, **24-month credit history**, and **3 message threads**
+- One-click **Reset Demo** button restores all seeded data to default state
 - All data is client-side — no backend required for the POC
 
 <br />

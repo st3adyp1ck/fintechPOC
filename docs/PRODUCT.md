@@ -68,6 +68,8 @@ Lower Class                    Middle Class                  Upper Class
 3. **FDIC-insured escrow** — Client controls their money
 4. **Real-time dashboard** — See every negotiation as it happens
 5. **Credit rebuilding program** — Free post-settlement credit recovery
+6. **Full financial transparency** — Every escrow dollar, every document, every call logged
+7. **Direct negotiator access** — Secure messaging without calling customer service
 
 ---
 
@@ -134,7 +136,12 @@ Client enrolls $30,000 in debt
 - [x] Landing page with savings calculator
 - [x] 5-step eligibility onboarding
 - [x] Simulated auth (Google OAuth + Magic Link)
-- [x] Dashboard with escrow tracking
+- [x] Dashboard with escrow tracking + quick-action widgets
+- [x] Activity Timeline — reverse-chronological negotiation feed
+- [x] Escrow Ledger — full statement of every dollar in/out
+- [x] Document Vault — secure document library with preview
+- [x] Credit Health — 24-month score tracker + rebuild checklist
+- [x] Notifications + Secure Messages — bell dropdown + negotiator chat
 - [x] Creditor negotiation board
 - [x] Impact simulator with settlement sliders
 - [x] Admin panel for rate management

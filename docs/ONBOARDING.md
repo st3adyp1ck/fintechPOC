@@ -242,6 +242,32 @@ If a user is declined:
 
 ---
 
+## Dashboard Activation
+
+After approval, users land on the **Dashboard** — now a full "financial operations cockpit" with 5 additional views accessible via the sidebar.
+
+### Dashboard Views
+
+| View | Purpose | Key Interaction |
+|------|---------|-----------------|
+| **Dashboard** | Summary + quick-action widgets | Click Escrow Balance → Ledger |
+| **Activity** | Full negotiation timeline | Filter by event type |
+| **Escrow Ledger** | Every dollar in/out | Download CSV, filter by date |
+| **Documents** | Program paperwork vault | Preview, grid/list toggle |
+| **Credit Health** | Score recovery tracking | Toggle checklist items |
+| **Impact Simulator** | Per-creditor settlement sliders | Drag to simulate outcomes |
+| **Creditors** | Per-card negotiation status | Monitor active negotiations |
+| **Messages** | Secure negotiator chat | Send message, auto-reply demo |
+
+### Widget Quick-Actions
+
+From the main Dashboard, users can see at a glance:
+- **Recent Activity** — last 3 events with "View all" link
+- **Action Required** — count of unread notifications + unsigned documents
+- **Credit Score** — current Experian estimate with monthly delta
+
+---
+
 ## Analytics Events
 
 Track these events for funnel analysis:
@@ -265,6 +291,14 @@ analytics.track('Eligibility Declined', { reason: 'insufficient_debt' });
 
 // Dashboard activation
 analytics.track('Dashboard First View', { days_since_approval: 0 });
+
+// Dashboard feature engagement
+analytics.track('Activity Filter Changed', { filter: 'settlements' });
+analytics.track('Escrow CSV Downloaded', { row_count: 46 });
+analytics.track('Document Previewed', { document_id: 'doc-003', category: 'Settlement Agreements' });
+analytics.track('Credit Task Toggled', { task_id: 'rt-002', status: 'in-progress' });
+analytics.track('Notification Clicked', { notification_id: 'notif-001', action_view: 'documents' });
+analytics.track('Message Sent', { thread_id: 'thread-001' });
 ```
 
 ---

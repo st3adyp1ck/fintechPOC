@@ -21,6 +21,10 @@ import {
   Shield,
   PiggyBank,
   Landmark,
+  Activity,
+  AlertCircle,
+  LineChart,
+  ChevronRight,
 } from 'lucide-react';
 
 const cardVariants = {
@@ -32,8 +36,16 @@ const cardVariants = {
   }),
 };
 
+function relativeTime(iso: string): string {
+  const diff = Date.now() - new Date(iso).getTime();
+  const days = Math.floor(diff / 86400000);
+  if (days < 1) return 'Today';
+  if (days === 1) return 'Yesterday';
+  return `${days} days ago`;
+}
+
 export default function Dashboard() {
-  const { state } = useApp();
+  const { state, setCurrentView } = useApp();
   const comparison = useMemo(
     () => calculateComparison(state.cards, state.totalMonthlyPayment, state.platformFee),
     [state.cards, state.totalMonthlyPayment, state.platformFee]
@@ -65,12 +77,140 @@ export default function Dashboard() {
   const metrics = [
     { label: 'Total Enrolled Debt', value: formatCurrency(totalBalance), icon: DollarSign, color: 'text-navy-800', bg: 'bg-cream-200' },
     { label: 'Est. Settlement Savings', value: formatCurrency(settlement.savings), icon: TrendingDown, color: 'text-emerald-700', bg: 'bg-emerald-100' },
-    { label: 'Escrow Balance', value: formatCurrency(state.escrowBalance), icon: PiggyBank, color: 'text-navy-800', bg: 'bg-gold-100' },
+    { label: 'Escrow Balance', value: formatCurrency(state.escrowBalance), icon: PiggyBank, color: 'text-navy-800', bg: 'bg-gold-100', onClick: () => setCurrentView('escrow') },
     { label: 'Projected Freedom', value: projectedDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), icon: Calendar, color: 'text-navy-800', bg: 'bg-navy-100' },
   ];
 
+  const recentEvents = useMemo(
+    () =>
+      [...state.activityEvents]
+        .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+        .slice(0, 3),
+    [state.activityEvents]
+  );
+
+  const actionRequiredCount =
+    state.notifications.filter((n) => n.type === 'action-required' && !n.read).length +
+    state.documents.filter((d) => d.status === 'unsigned').length;
+
+  const currentScore = state.creditHistory[state.creditHistory.length - 1]?.score ?? 620;
+  const prevScore = state.creditHistory[state.creditHistory.length - 2]?.score ?? 620;
+  const scoreDelta = currentScore - prevScore;
+
   return (
     <div className="space-y-8">
+      {/* Compact Widgets */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Recent Activity */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-cream-50 rounded-2xl border border-cream-300 p-5 shadow-sm"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Activity className="w-4 h-4 text-gold-600" />
+              <h3 className="text-sm font-bold text-navy-900">Recent Activity</h3>
+            </div>
+            <button
+              onClick={() => setCurrentView('activity')}
+              className="text-xs font-bold text-gold-600 hover:text-gold-700 flex items-center gap-0.5"
+            >
+              View all <ChevronRight className="w-3 h-3" />
+            </button>
+          </div>
+          <div className="space-y-3">
+            {recentEvents.map((event) => {
+              const creditor = state.cards.find((c) => c.id === event.creditorId);
+              return (
+                <div key={event.id} className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-1.5 shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold text-navy-800 truncate">{event.title}</p>
+                    <p className="text-[11px] text-navy-400">
+                      {creditor?.creditor} • {relativeTime(event.timestamp)}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Action Required */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="bg-cream-50 rounded-2xl border border-cream-300 p-5 shadow-sm"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <AlertCircle className="w-4 h-4 text-amber-600" />
+            <h3 className="text-sm font-bold text-navy-900">Action Required</h3>
+          </div>
+          <div className="flex items-end gap-2">
+            <p className="text-3xl font-bold text-navy-900">{actionRequiredCount}</p>
+            <p className="text-xs text-navy-500 mb-1">items need your attention</p>
+          </div>
+          <div className="mt-3 space-y-1.5">
+            {state.notifications.filter((n) => n.type === 'action-required' && !n.read).length > 0 && (
+              <button
+                onClick={() => setCurrentView('messages')}
+                className="block text-xs text-navy-500 hover:text-navy-700"
+              >
+                • {state.notifications.filter((n) => n.type === 'action-required' && !n.read).length} unread notification
+                {state.notifications.filter((n) => n.type === 'action-required' && !n.read).length === 1 ? '' : 's'}
+              </button>
+            )}
+            {state.documents.filter((d) => d.status === 'unsigned').length > 0 && (
+              <button
+                onClick={() => setCurrentView('documents')}
+                className="block text-xs text-navy-500 hover:text-navy-700"
+              >
+                • {state.documents.filter((d) => d.status === 'unsigned').length} document
+                {state.documents.filter((d) => d.status === 'unsigned').length === 1 ? '' : 's'} awaiting signature
+              </button>
+            )}
+          </div>
+        </motion.div>
+
+        {/* Credit Score */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-cream-50 rounded-2xl border border-cream-300 p-5 shadow-sm cursor-pointer"
+          onClick={() => setCurrentView('credit')}
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <LineChart className="w-4 h-4 text-emerald-600" />
+              <h3 className="text-sm font-bold text-navy-900">Credit Score</h3>
+            </div>
+            <ChevronRight className="w-4 h-4 text-navy-300" />
+          </div>
+          <div className="flex items-end gap-2">
+            <p className="text-3xl font-bold text-navy-900">{currentScore}</p>
+            <div className="flex items-center gap-1 mb-1">
+              {scoreDelta > 0 ? (
+                <TrendingDown className="w-4 h-4 text-emerald-600 rotate-180" />
+              ) : scoreDelta < 0 ? (
+                <TrendingDown className="w-4 h-4 text-rose-600" />
+              ) : null}
+              <span
+                className={`text-xs font-bold ${
+                  scoreDelta > 0 ? 'text-emerald-600' : scoreDelta < 0 ? 'text-rose-600' : 'text-navy-400'
+                }`}
+              >
+                {scoreDelta > 0 ? '+' : ''}
+                {scoreDelta} this month
+              </span>
+            </div>
+          </div>
+          <p className="text-xs text-navy-400 mt-2">Experian estimate. Recovering to 700+ projected.</p>
+        </motion.div>
+      </div>
+
       {/* Legal Protection Banner */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -104,7 +244,8 @@ export default function Dashboard() {
               initial="hidden"
               animate="visible"
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-cream-50 rounded-2xl border border-cream-300 p-6 shadow-sm hover:shadow-lg transition-shadow"
+              onClick={m.onClick}
+              className={`bg-cream-50 rounded-2xl border border-cream-300 p-6 shadow-sm hover:shadow-lg transition-shadow ${m.onClick ? 'cursor-pointer' : ''}`}
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className={`w-10 h-10 ${m.bg} rounded-xl flex items-center justify-center`}>

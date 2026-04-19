@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="description" content="A simple offline-capable notes PWA demo" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <title>QuickNotes PWA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>📝 QuickNotes</h1>
+      <p class="status" id="status">Online</p>
+    </header>
+
+    <main class="app-main">
+      <form class="note-form" id="noteForm">
+        <input
+          type="text"
+          id="noteInput"
+          placeholder="Type a note and press Enter..."
+          autocomplete="off"
+          required
+        />
+        <button type="submit" class="btn-add">Add</button>
+      </form>
+
+      <ul class="note-list" id="noteList"></ul>
+
+      <div class="empty-state" id="emptyState">
+        <span class="empty-icon">🗒️</span>
+        <p>No notes yet.</p>
+        <p class="empty-hint">Add your first note above — it works offline too!</p>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <button class="btn-install" id="installBtn" hidden>📲 Install App</button>
+      <small>QuickNotes PWA Demo • Works Offline</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('SW registered:', reg.scope))
+        .catch(err => console.log('SW registration failed:', err));
+    }
+  </script>
+</body>
+</html>

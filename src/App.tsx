@@ -12,6 +12,11 @@ const Onboarding = lazy(() => import('./components/Onboarding'));
 const AdminPanel = lazy(() => import('./components/AdminPanel'));
 const CreditorBoard = lazy(() => import('./components/CreditorBoard'));
 const ScenarioSimulator = lazy(() => import('./components/ScenarioSimulator'));
+const ActivityTimeline = lazy(() => import('./components/ActivityTimeline'));
+const EscrowLedger = lazy(() => import('./components/EscrowLedger'));
+const DocumentVault = lazy(() => import('./components/DocumentVault'));
+const CreditHealth = lazy(() => import('./components/CreditHealth'));
+const Messages = lazy(() => import('./components/Messages'));
 
 function PageLoader() {
   return (
@@ -53,13 +58,18 @@ function App() {
           <Onboarding />
         </Suspense>
       )}
-      {(state.currentView === 'dashboard' || state.currentView === 'admin' || state.currentView === 'creditors' || state.currentView === 'simulator') && (
+      {(state.currentView === 'dashboard' || state.currentView === 'admin' || state.currentView === 'creditors' || state.currentView === 'simulator' || state.currentView === 'activity' || state.currentView === 'escrow' || state.currentView === 'documents' || state.currentView === 'credit' || state.currentView === 'messages') && (
         <Layout>
           <Suspense fallback={<PageLoader />}>
             {state.currentView === 'dashboard' && <Dashboard />}
             {state.currentView === 'admin' && <AdminPanel />}
             {state.currentView === 'creditors' && <CreditorBoard />}
             {state.currentView === 'simulator' && <ScenarioSimulator />}
+            {state.currentView === 'activity' && <ActivityTimeline />}
+            {state.currentView === 'escrow' && <EscrowLedger />}
+            {state.currentView === 'documents' && <DocumentVault />}
+            {state.currentView === 'credit' && <CreditHealth />}
+            {state.currentView === 'messages' && <Messages />}
           </Suspense>
         </Layout>
       )}
