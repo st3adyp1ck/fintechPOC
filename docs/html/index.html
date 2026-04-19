@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DebtOptimize — Documentation Package</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream-50: #fdfcfa;
+      --cream-100: #faf8f5;
+      --cream-200: #f5f0e8;
+      --cream-300: #ebe4d6;
+      --navy-500: #3d4666;
+      --navy-700: #2d3554;
+      --navy-800: #1e243d;
+      --navy-900: #12162b;
+      --navy-950: #0a0e1f;
+      --gold-300: #f0d78a;
+      --gold-400: #edc45a;
+      --gold-500: #d4961e;
+      --teal-400: #2dd4bf;
+      --teal-500: #14b8a6;
+      --teal-600: #0d9488;
+      --rose-500: #f43f5e;
+      --sidebar-width: 280px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--cream-100);
+      color: var(--navy-900);
+      line-height: 1.6;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--cream-300); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--navy-700); }
+
+    ::selection { background: var(--gold-400); color: var(--navy-950); }
+
+    /* Layout */
+    .page-wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: var(--navy-950);
+      color: var(--cream-200);
+      overflow-y: auto;
+      z-index: 100;
+      padding: 32px 20px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-brand .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800;
+      color: var(--navy-950);
+    }
+
+    .sidebar-brand .logo-text {
+      font-size: 18px; font-weight: 700;
+      color: var(--cream-50);
+      letter-spacing: -0.3px;
+    }
+
+    .sidebar-brand .logo-sub {
+      font-size: 11px; font-weight: 500;
+      color: var(--gold-400);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .sidebar-tagline {
+      font-size: 12px; color: var(--navy-500);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .nav-section-title {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--navy-500);
+      margin: 20px 0 10px 12px;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 8px 12px 8px 14px;
+      border-radius: 8px;
+      color: var(--cream-300);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+      margin-bottom: 2px;
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--cream-50);
+    }
+
+    .nav-link.active {
+      background: rgba(237,196,90,0.12);
+      color: var(--gold-400);
+      border-left-color: var(--gold-400);
+    }
+
+    .nav-link .nav-badge {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      background: var(--teal-500);
+      color: white;
+      padding: 1px 6px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Mobile toggle */
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      top: 16px; left: 16px;
+      z-index: 200;
+      width: 44px; height: 44px;
+      background: var(--navy-950);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      color: var(--cream-50);
+      font-size: 20px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    .content-section {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+
+    .content-section:not(:last-child) {
+      border-bottom: 1px solid var(--cream-300);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--navy-950) 0%, var(--navy-900) 60%, var(--navy-800) 100%);
+      color: var(--cream-50);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(237,196,90,0.15);
+      border: 1px solid rgba(237,196,90,0.25);
+      color: var(--gold-300);
+      font-size: 12px; font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--teal-400);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-400);
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: var(--cream-200);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--navy-500);
+    }
+
+    .hero-meta .meta-item span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal-500);
+    }
+
+    /* Typography */
+    h2 {
+      font-size: 32px; font-weight: 700;
+      letter-spacing: -0.8px;
+      margin-bottom: 20px;
+      color: var(--navy-950);
+      scroll-margin-top: 32px;
+    }
+
+    h3 {
+      font-size: 22px; font-weight: 700;
+      margin: 40px 0 14px;
+      color: var(--navy-900);
+      scroll-margin-top: 32px;
+    }
+
+    h4 {
+      font-size: 17px; font-weight: 600;
+      margin: 28px 0 10px;
+      color: var(--navy-800);
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--navy-700);
+    }
+
+    strong { font-weight: 600; color: var(--navy-900); }
+
+    em { font-style: italic; color: var(--navy-800); }
+
+    a {
+      color: var(--teal-600);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--teal-600); }
+
+    /* Blockquote */
+    blockquote {
+      border-left: 4px solid var(--gold-400);
+      background: var(--cream-200);
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      color: var(--navy-800);
+    }
+
+    blockquote p { margin: 0; }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; margin: 24px 0; border-radius: 12px; border: 1px solid var(--cream-300); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead { background: var(--navy-900); color: var(--cream-50); }
+
+    th {
+      text-align: left;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--cream-300);
+      color: var(--navy-700);
+      vertical-align: top;
+    }
+
+    tbody tr:hover { background: var(--cream-200); }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* Code */
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      background: var(--cream-200);
+      padding: 2px 7px;
+      border-radius: 6px;
+      color: var(--navy-800);
+    }
+
+    pre {
+      background: var(--navy-950);
+      color: var(--cream-200);
+      padding: 24px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: var(--navy-700);
+    }
+
+    li::marker { color: var(--gold-500); }
+
+    /* Checklist */
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+    }
+    .checklist li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--teal-500);
+      font-weight: 700;
+    }
+
+    /* Utility classes to replace inline styles */
+    .no-margin { margin: 0; }
+    .tight-top { margin: 8px 0 0; }
+    .shift-top-sm { margin-top: 8px; }
+    .italic-shift { margin-top: 8px; font-style: italic; }
+    .footer-note { margin-top: 16px; font-size: 11px; color: var(--navy-700); }
+
+    pre.code-light {
+      background: var(--cream-200);
+      color: var(--navy-800);
+      padding: 24px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* Feature Cards */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .feature-card {
+      background: var(--cream-50);
+      border: 1px solid var(--cream-300);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(18,22,43,0.08);
+      border-color: var(--gold-400);
+    }
+
+    .feature-card .feature-num {
+      font-size: 28px; font-weight: 800;
+      color: var(--gold-400);
+      margin-bottom: 8px;
+    }
+
+    .feature-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--navy-500);
+    }
+
+    /* Info Box */
+    .info-box {
+      background: linear-gradient(135deg, rgba(20,184,166,0.08), rgba(20,184,166,0.03));
+      border: 1px solid rgba(20,184,166,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .info-box-title {
+      font-weight: 700;
+      color: var(--teal-600);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-box p { margin: 0; }
+
+    /* Warning Box */
+    .warning-box {
+      background: linear-gradient(135deg, rgba(237,196,90,0.1), rgba(237,196,90,0.03));
+      border: 1px solid rgba(237,196,90,0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .warning-box-title {
+      font-weight: 700;
+      color: var(--gold-500);
+      margin-bottom: 6px;
+    }
+
+    /* Architecture Diagram */
+    pre.ascii-art {
+      background: var(--navy-950);
+      color: var(--cream-200);
+      padding: 28px 32px;
+      border-radius: 12px;
+      font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 12.5px;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 20px 0;
+      white-space: pre;
+      border: none;
+      tab-size: 2;
+    }
+
+    /* Comparison Table Special */
+    .comparison-table th:first-child { background: var(--navy-800); }
+    .comparison-table td:first-child { font-weight: 600; color: var(--navy-900); background: var(--cream-200); }
+
+    /* Status Badges */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-success { background: rgba(20,184,166,0.15); color: var(--teal-600); }
+    .badge-warn { background: rgba(237,196,90,0.15); color: var(--gold-500); }
+    .badge-danger { background: rgba(244,63,94,0.1); color: var(--rose-500); }
+
+    /* Footer */
+    .doc-footer {
+      background: var(--navy-950);
+      color: var(--navy-500);
+      text-align: center;
+      padding: 48px;
+      font-size: 13px;
+    }
+
+    .doc-footer strong { color: var(--cream-300); }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 48px; height: 48px;
+      background: var(--navy-900);
+      color: var(--cream-50);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      opacity: 0; pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 50;
+    }
+
+    .back-to-top.visible { opacity: 1; pointer-events: all; }
+    .back-to-top:hover { background: var(--gold-400); color: var(--navy-950); }
+
+    /* ===== Modern Diagram Replacements for ASCII Art ===== */
+    .diagram-three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .diagram-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .diagram-col-card {
+      background: var(--navy-950);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px 16px;
+      width: 100%;
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .diagram-col-card .icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .diagram-col-card .label {
+      font-size: 14px; font-weight: 700;
+      color: var(--cream-50);
+    }
+    .diagram-col-card .sublabel {
+      font-size: 12px;
+      color: var(--navy-500);
+      line-height: 1.4;
+      max-width: 140px;
+    }
+    .diagram-col-arrow {
+      color: var(--navy-500);
+    }
+    .diagram-col-footer {
+      font-size: 12px;
+      color: var(--navy-700);
+      line-height: 1.5;
+    }
+
+    /* Architecture stack */
+    .arch-stack {
+      background: var(--navy-950);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 20px 0;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .arch-layer { margin-bottom: 20px; }
+    .arch-layer:last-child { margin-bottom: 0; }
+    .arch-layer-label {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--navy-500);
+      margin-bottom: 12px;
+    }
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .arch-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      font-size: 12px; font-weight: 600;
+      color: var(--cream-200);
+    }
+    .arch-connector {
+      display: flex;
+      justify-content: center;
+      margin: 14px 0;
+      color: var(--navy-500);
+    }
+
+    /* Horizontal stepper */
+    .diagram-stepper-wrap {
+      margin: 28px 0;
+    }
+    .diagram-stepper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      position: relative;
+    }
+    .diagram-stepper::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: var(--cream-300);
+      z-index: 0;
+    }
+    .diagram-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    .step-circle {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--navy-950);
+      border: 2px solid var(--gold-400);
+      color: var(--gold-400);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+    }
+    .step-label {
+      font-size: 11px; font-weight: 600;
+      color: var(--navy-800);
+      text-align: center; line-height: 1.3;
+    }
+    .diagram-stepper-outcome {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .outcome-badge {
+      background: var(--navy-950);
+      border: 1px solid var(--teal-500);
+      color: var(--teal-400);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 12px; font-weight: 700;
+    }
+
+    /* Data flow grid */
+    .data-flow {
+      display: grid;
+      grid-template-columns: 1fr 24px 1fr 24px 1fr;
+      gap: 4px 0;
+      max-width: 680px;
+      margin: 24px auto;
+      align-items: stretch;
+    }
+    .df-node {
+      background: var(--navy-950);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      margin: 4px;
+      align-self: stretch;
+      justify-self: stretch;
+    }
+    .df-node.accent-gold { border-color: rgba(237,196,90,0.25); }
+    .df-node.accent-teal { border-color: rgba(45,212,191,0.25); }
+    .df-node.accent-rose { border-color: rgba(244,63,94,0.2); }
+    .df-node.wide { grid-column: 3 / span 3; justify-self: stretch; margin: 4px; }
+    .df-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 8px;
+    }
+    .df-title { font-size: 12px; font-weight: 700; color: var(--cream-50); margin-bottom: 4px; }
+    .df-desc { font-size: 11px; color: var(--navy-500); line-height: 1.4; }
+    .df-conn-h {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .df-conn-h .line {
+      width: 100%; height: 2px;
+      background: var(--navy-500);
+      position: relative;
+    }
+    .df-conn-h .line::after {
+      content: '';
+      position: absolute;
+      right: -1px; top: -3px;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 5px solid var(--navy-500);
+    }
+    .df-conn-v {
+      display: flex; justify-content: center;
+      min-height: 24px;
+      position: relative;
+    }
+    .df-conn-v .line {
+      width: 2px; height: 100%;
+      background: linear-gradient(to bottom, var(--navy-800), var(--navy-500));
+      position: relative;
+    }
+    .df-conn-v .line::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: -3px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--navy-500);
+    }
+    /* Explicit placement used for data-flow children */
+
+    /* Vertical flow steps */
+    .diagram-flow-v {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 420px;
+      margin: 24px auto;
+    }
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--navy-950);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 20px 24px;
+      width: 100%;
+    }
+    .flow-step-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .flow-step-content { min-width: 0; }
+    .flow-step-title {
+      font-size: 14px; font-weight: 700;
+      color: var(--cream-50);
+      margin-bottom: 2px;
+    }
+    .flow-step-desc {
+      font-size: 12px;
+      color: var(--navy-500);
+      line-height: 1.4;
+    }
+    .flow-connector {
+      width: 2px; height: 28px;
+      background: linear-gradient(to bottom, var(--navy-800), var(--gold-500));
+      position: relative;
+    }
+    .flow-connector::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--gold-500);
+    }
+
+    /* File tree */
+    .file-tree {
+      background: var(--navy-950);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 20px 0;
+      list-style: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 2.2;
+    }
+    .file-tree li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--cream-200);
+    }
+    .file-tree li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+    .file-tree li.ft-folder {
+      padding-left: 0;
+      font-weight: 700;
+      color: var(--gold-400);
+    }
+    .file-tree li.ft-folder::before { display: none; }
+    .file-tree li.ft-file::before { background: var(--teal-400); border-radius: 50%; }
+    .file-tree li.ft-file.nested { padding-left: 40px; }
+    .file-tree li.ft-file.nested::before { left: 20px; background: var(--navy-500); }
+    .ft-meta {
+      color: var(--navy-500);
+      margin-left: 12px;
+      font-size: 12px;
+    }
+
+    /* Responsive diagrams */
+    @media (max-width: 640px) {
+      .diagram-three-col { grid-template-columns: 1fr; }
+      .diagram-stepper { gap: 4px; }
+      .diagram-stepper::before { left: 12px; right: 12px; }
+      .step-label { font-size: 10px; }
+      .data-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 100%;
+      }
+      .data-flow > *:empty { display: none; }
+      .data-flow .df-conn-h,
+      .data-flow .df-conn-v { display: none; }
+      .data-flow .df-node { margin: 0; }
+      .data-flow .df-node.wide { grid-column: auto; }
+    }
+
+    /* Print */
+    @media print {
+      .sidebar, .mobile-toggle, .back-to-top { display: none; }
+      .main-content { margin-left: 0; }
+      .content-section { padding: 32px; }
+      body { background: white; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      .sidebar.open { transform: translateX(0); }
+      .main-content { margin-left: 0; }
+      .mobile-toggle { display: flex; }
+      .hero h1 { font-size: 36px; }
+      .content-section { padding: 40px 24px; }
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 28px; }
+      .hero-subtitle { font-size: 16px; }
+      h2 { font-size: 24px; }
+      h3 { font-size: 18px; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Smooth section transitions */
+    .content-section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Collapsible sections */
+    .collapsible-header {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .collapsible-header::after {
+      content: '\25BC';
+      font-size: 10px;
+      color: var(--gold-500);
+      transition: transform 0.2s;
+    }
+
+    .collapsible-header.collapsed::after {
+      transform: rotate(-90deg);
+    }
+
+    .collapsible-body {
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    /* Divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cream-300), transparent);
+      margin: 48px 0;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">&#9776;</button>
+
+  <div class="page-wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">D</div>
+        <div>
+          <div class="logo-text">DebtOptimize</div>
+          <div class="logo-sub">Documentation</div>
+        </div>
+      </div>
+      <div class="sidebar-tagline">Same Payment. Faster Freedom.<br>A debt settlement platform built for the middle class.</div>
+
+      <div class="nav-section-title">Overview</div>
+      <a href="#overview" class="nav-link" onclick="closeSidebar()">Product Overview</a>
+      <a href="#what-is-this" class="nav-link" onclick="closeSidebar()">What You're Looking At</a>
+      <a href="#why-exists" class="nav-link" onclick="closeSidebar()">Why This Exists</a>
+      <a href="#differentiation" class="nav-link" onclick="closeSidebar()">Differentiation</a>
+
+      <div class="nav-section-title">Architecture</div>
+      <a href="#architecture" class="nav-link" onclick="closeSidebar()">System Overview</a>
+      <a href="#state-management" class="nav-link" onclick="closeSidebar()">State Management</a>
+      <a href="#components" class="nav-link" onclick="closeSidebar()">Components</a>
+      <a href="#calc-engine" class="nav-link" onclick="closeSidebar()">Calculation Engine</a>
+      <a href="#data-flow" class="nav-link" onclick="closeSidebar()">Data Flow</a>
+
+      <div class="nav-section-title">Design System</div>
+      <a href="#design" class="nav-link" onclick="closeSidebar()">Design Philosophy</a>
+      <a href="#colors" class="nav-link" onclick="closeSidebar()">Color Palette</a>
+      <a href="#typography" class="nav-link" onclick="closeSidebar()">Typography</a>
+      <a href="#components-ui" class="nav-link" onclick="closeSidebar()">UI Components</a>
+      <a href="#animations" class="nav-link" onclick="closeSidebar()">Animation System</a>
+
+      <div class="nav-section-title">Onboarding</div>
+      <a href="#onboarding" class="nav-link" onclick="closeSidebar()">User Journey</a>
+      <a href="#onboarding-steps" class="nav-link" onclick="closeSidebar()">5-Step Flow</a>
+      <a href="#eligibility" class="nav-link" onclick="closeSidebar()">Eligibility Criteria</a>
+      <a href="#conversion" class="nav-link" onclick="closeSidebar()">Conversion Optimization</a>
+
+      <div class="nav-section-title">Product</div>
+      <a href="#product" class="nav-link" onclick="closeSidebar()">Product Positioning</a>
+      <a href="#competitive" class="nav-link" onclick="closeSidebar()">Competitive Analysis</a>
+      <a href="#business-model" class="nav-link" onclick="closeSidebar()">Business Model</a>
+      <a href="#roadmap" class="nav-link" onclick="closeSidebar()">Feature Roadmap</a>
+      <a href="#compliance" class="nav-link" onclick="closeSidebar()">Compliance &amp; Legal</a>
+
+      <div class="nav-section-title">Deployment</div>
+      <a href="#deployment" class="nav-link" onclick="closeSidebar()">Getting Started</a>
+      <a href="#build-commands" class="nav-link" onclick="closeSidebar()">Build Commands</a>
+      <a href="#platforms" class="nav-link" onclick="closeSidebar()">Deployment Platforms</a>
+      <a href="#monitoring" class="nav-link" onclick="closeSidebar()">Monitoring &amp; Security</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-badge"><span class="dot"></span> Project Documentation</div>
+          <h1>DebtOptimize<br><em>Documentation Package</em></h1>
+          <p class="hero-subtitle">A complete technical and product guide for the DebtOptimize debt settlement platform — built for Andrew and the founding team.</p>
+          <div class="hero-meta">
+            <div class="meta-item"><span></span>React 19 + TypeScript</div>
+            <div class="meta-item"><span></span>Vite 8 + Tailwind CSS v4</div>
+            <div class="meta-item"><span></span>Framer Motion + Recharts</div>
+            <div class="meta-item"><span></span>Status: Production Build Ready</div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== OVERVIEW (from README.md) ===== -->
+      <section class="content-section" id="overview">
+        <h2>&#128200; Product Overview</h2>
+        <p><strong>DebtOptimize</strong> is a debt settlement platform targeting the American middle class — households earning <strong>$50K–$150K</strong> who carry significant credit card debt but cannot qualify for traditional consolidation loans.</p>
+
+        <div class="info-box">
+          <div class="info-box-title">&#9889; The Core Value Proposition</div>
+          <p>Negotiate your credit card debt down by an average of <strong>52%</strong> — with no upfront fees, legal protection included, and a credit rebuilding program that actually works. <strong>Same monthly payment. Dramatically faster freedom.</strong></p>
+        </div>
+
+        <h3 id="what-is-this">What You're Looking At</h3>
+        <p>This is a <strong>high-fidelity functional prototype</strong> built for live client demonstrations and investor pitches. It demonstrates how a structured debt settlement platform — complete with KYC onboarding, real-time dashboards, and negotiation simulation — can dramatically improve outcomes for middle-class Americans trapped in high-interest debt.</p>
+
+        <blockquote>
+          <p><strong>Target Audience:</strong> Households earning $50K–$150K who cannot qualify for traditional debt consolidation loans but need structured relief from high-interest credit card debt.</p>
+        </blockquote>
+
+        <h3 id="why-exists">Why This Exists</h3>
+        <p>The debt relief industry is broken. Companies hide fees, ignore calls, and leave clients exposed to creditor lawsuits. <strong>DebtOptimize was built differently:</strong></p>
+
+        <div class="table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr><th>The Old Way</th><th>DebtOptimize</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Upfront fees before any results</td><td><strong>$0 upfront</strong> — we only get paid when we save you money</td></tr>
+              <tr><td>No legal protection</td><td><strong>Attorney network included</strong> — if you're sued, we defend you</td></tr>
+              <tr><td>Opaque process</td><td><strong>Real-time dashboard</strong> — watch every negotiation as it happens</td></tr>
+              <tr><td>One-size-fits-all</td><td><strong>Personalized strategy</strong> — based on your actual credit profile</td></tr>
+              <tr><td>Credit score destroyed forever</td><td><strong>Free credit rebuilding</strong> — back to 700+ in 24 months</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Core Features at a Glance</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-num">01</div>
+            <h4>Stunning Landing Page</h4>
+            <p>Conversion-optimized with parallax hero, animated counters, interactive savings calculator, and social proof.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">02</div>
+            <h4>5-Step Eligibility Flow</h4>
+            <p>KYC onboarding with simulated identity verification, soft credit pull, and dynamic debt assessment.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">03</div>
+            <h4>Simulated Auth System</h4>
+            <p>Google OAuth and Email Magic Link flows with realistic loading states and auto-redirect.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">04</div>
+            <h4>Interactive Dashboard</h4>
+            <p>Escrow tracking, creditor settlement table, side-by-side comparisons, and balance-over-time charts.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">05</div>
+            <h4>Impact Simulator</h4>
+            <p>Per-card settlement sliders with real-time metric updates and visual payoff curve comparison.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">06</div>
+            <h4>Admin Controls</h4>
+            <p>Toggle negotiated APRs, adjust platform fees, and view weighted average calculations.</p>
+          </div>
+        </div>
+
+        <h3 id="differentiation">The "Stuck Middle" Problem</h3>
+        <div class="diagram-container">
+          <div class="diagram-three-col" role="img" aria-label="Three-column comparison showing Lower Class with Bankruptcy Only leading to 7-10 year credit hit, Middle Class stuck paying 29% APR forever, and Upper Class with Consolidation Loan plus Advisor leading to low-rate refinancing">
+            <div class="diagram-col">
+              <div class="diagram-col-card" style="border-top: 3px solid var(--rose-500);">
+                <div class="icon" style="background: rgba(244,63,94,0.12); color: var(--rose-500);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+                </div>
+                <div class="label">Lower Class</div>
+                <div class="sublabel">Bankruptcy Only Option</div>
+              </div>
+              <div class="diagram-col-arrow" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+              </div>
+              <div class="diagram-col-footer">
+                <strong style="color: var(--rose-500);">7–10 year</strong> credit hit
+              </div>
+            </div>
+            <div class="diagram-col">
+              <div class="diagram-col-card" style="border-top: 3px solid var(--gold-400);">
+                <div class="icon" style="background: rgba(237,196,90,0.12); color: var(--gold-400);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                </div>
+                <div class="label">Middle Class</div>
+                <div class="sublabel">Can't qualify for anything</div>
+              </div>
+              <div class="diagram-col-arrow" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+              </div>
+              <div class="diagram-col-footer">
+                <strong style="color: var(--gold-500);">Paying 29%</strong> APR forever
+              </div>
+            </div>
+            <div class="diagram-col">
+              <div class="diagram-col-card" style="border-top: 3px solid var(--teal-400);">
+                <div class="icon" style="background: rgba(45,212,191,0.12); color: var(--teal-400);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </div>
+                <div class="label">Upper Class</div>
+                <div class="sublabel">Consolidation Loan + Advisor</div>
+              </div>
+              <div class="diagram-col-arrow" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+              </div>
+              <div class="diagram-col-footer">
+                <strong style="color: var(--teal-500);">Low-rate refi</strong> &amp; tax strategies
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><strong>DebtOptimize exists for the middle column.</strong> These households earn too much for bankruptcy aid but are denied for consolidation loans. They are stuck paying 24–29% APR with balances that never decrease.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ===== ARCHITECTURE ===== -->
+      <section class="content-section" id="architecture">
+        <h2>&#127959; System Architecture</h2>
+        <p>DebtOptimize is a single-page application (SPA) built with React 19, TypeScript, and Vite. All state is managed client-side for the POC — no backend services are required.</p>
+
+        <div class="arch-stack" role="img" aria-label="System architecture diagram showing Browser layer containing React components, AppContext state management, and the Calculation Engine">
+          <div class="arch-layer">
+            <div class="arch-layer-label">Browser Layer</div>
+            <div class="arch-grid">
+              <div class="arch-item">Landing Page</div>
+              <div class="arch-item">Onboarding Flow</div>
+              <div class="arch-item">Dashboard Suite</div>
+              <div class="arch-item">AuthModal</div>
+              <div class="arch-item">Custom Cursor</div>
+              <div class="arch-item">Admin Panel</div>
+              <div class="arch-item">Creditor Board</div>
+              <div class="arch-item">Impact Simulator</div>
+            </div>
+          </div>
+          <div class="arch-connector" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </div>
+          <div class="arch-layer" style="background: rgba(237,196,90,0.06); border-radius: 12px; padding: 20px; border: 1px solid rgba(237,196,90,0.15);">
+            <div class="arch-layer-label" style="color: var(--gold-400);">AppContext (React Context API)</div>
+            <div style="text-align: center; font-size: 13px; color: var(--cream-200);">Global state provider for profile, cards, payments, and view routing</div>
+          </div>
+          <div class="arch-connector" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </div>
+          <div class="arch-layer" style="background: rgba(20,184,166,0.06); border-radius: 12px; padding: 20px; border: 1px solid rgba(20,184,166,0.15);">
+            <div class="arch-layer-label" style="color: var(--teal-400);">Calculation Engine (src/data.ts)</div>
+            <div style="text-align: center; font-size: 13px; color: var(--cream-200);">Settlement math, payoff timelines, weighted APR, comparison logic</div>
+          </div>
+          <div style="margin-top: 20px; text-align: center; font-size: 11px; color: var(--navy-500); letter-spacing: 0.5px;">
+            React 19 · TypeScript · Vite · Tailwind CSS v4 · Framer Motion · Recharts · Lucide React
+          </div>
+        </div>
+
+        <h3 id="state-management">State Management</h3>
+        <p>The application uses a single <strong>React Context provider</strong> for global state. This is intentional for the POC — it avoids the complexity of Redux/Zustand while providing full type safety.</p>
+
+        <pre><code>interface AppState {
+  profile: UserProfile;              // User's personal information
+  cards: DebtCard[];                 // Array of credit card debts
+  totalMonthlyPayment: number;       // Total monthly escrow deposit
+  platformFee: number;               // Monthly platform fee
+  escrowBalance: number;             // Current escrow account balance
+  adminMode: boolean;                // Admin panel visibility
+  demoMode: boolean;                 // Demo data toggle
+  onboardingStep: OnboardingStep;    // Current onboarding phase
+  currentView: AppView;              // Active screen
+  eligibilityStatus: 'pending' | 'approved' | 'declined';
+  idVerified: boolean;               // Identity verification complete
+  creditChecked: boolean;            // Soft credit pull complete
+}</code></pre>
+
+        <h3 id="components">Component Architecture</h3>
+
+        <h4>LandingPage</h4>
+        <p><strong>Purpose:</strong> Conversion-focused entry point</p>
+        <ul>
+          <li>Parallax hero section with <code>useScroll</code> + <code>useTransform</code></li>
+          <li>Animated counter components triggered by IntersectionObserver</li>
+          <li>Interactive savings calculator with real-time settlement math</li>
+          <li>FAQ accordion with <code>AnimatePresence</code> for smooth open/close</li>
+          <li>Mobile-responsive navigation with hamburger menu</li>
+        </ul>
+
+        <h4>Onboarding (5-Step Flow)</h4>
+        <p><strong>Purpose:</strong> Eligibility verification and debt assessment</p>
+        <div class="diagram-stepper-wrap">
+          <div class="diagram-stepper" role="list" aria-label="Onboarding flow: 5 sequential steps">
+            <div class="diagram-step" role="listitem">
+              <div class="step-circle">1</div>
+              <div class="step-label">Basic<br>Info</div>
+            </div>
+            <div class="diagram-step" role="listitem">
+              <div class="step-circle">2</div>
+              <div class="step-label">Identity<br>Verify</div>
+            </div>
+            <div class="diagram-step" role="listitem">
+              <div class="step-circle">3</div>
+              <div class="step-label">Credit<br>Check</div>
+            </div>
+            <div class="diagram-step" role="listitem">
+              <div class="step-circle">4</div>
+              <div class="step-label">Debt<br>Assessment</div>
+            </div>
+            <div class="diagram-step" role="listitem">
+              <div class="step-circle">5</div>
+              <div class="step-label">Eligibility<br>Decision</div>
+            </div>
+          </div>
+          <div class="diagram-stepper-outcome">
+            <div class="outcome-badge">Approved / Declined</div>
+          </div>
+          <p style="text-align: center; font-size: 12px; color: var(--navy-500); margin-top: 12px;">Gated: cannot skip steps</p>
+        </div>
+
+        <h4>Dashboard</h4>
+        <p><strong>Purpose:</strong> Primary user interface post-approval</p>
+        <ul>
+          <li><strong>Metrics Grid</strong> — 4 key cards with staggered entrance animations</li>
+          <li><strong>Settlement Progress Bar</strong> — Animated escrow accumulation tracker</li>
+          <li><strong>Creditor Table</strong> — Sortable settlement status per card</li>
+          <li><strong>Comparison Cards</strong> — Side-by-side "Without Settlement" vs "With DebtOptimize"</li>
+          <li><strong>AreaChart</strong> — Debt balance over time with gradient fills</li>
+        </ul>
+
+        <h4>AuthModal</h4>
+        <p><strong>Purpose:</strong> Authentication gateway</p>
+        <ul>
+          <li><strong>Google OAuth (Simulated)</strong> — 4-step animation: Connecting → Verifying → Fetching → Redirecting</li>
+          <li><strong>Email Magic Link</strong> — Input validation → Loading state → "Check your inbox" confirmation</li>
+        </ul>
+
+        <h3 id="calc-engine">Calculation Engine</h3>
+        <p>The core business logic lives in <code>src/data.ts</code>:</p>
+
+        <pre><code>// Settlement savings calculation
+const settlement = calculateSettlementSavings(cards);
+// → { totalDebt, estimatedSettlement, savings, savingsPercent }
+
+// Payoff timeline comparison
+const comparison = calculateComparison(cards, monthlyPayment, platformFee);
+// → { statusQuo, platformPath, interestSaved, monthsSaved }
+
+// Weighted APR Calculation
+weightedAPR = Σ(balance_i × apr_i) / Σ(balance_i)</code></pre>
+
+        <h3 id="data-flow">Data Flow</h3>
+        <div class="data-flow" role="img" aria-label="Data flow: User Input flows to AppContext, then to Components. Components trigger Calculation Engine, which feeds Charts. AppContext also feeds Charts directly.">
+          <div class="df-node" style="grid-column: 1; grid-row: 1;">
+            <div class="df-icon" style="background: rgba(20,184,166,0.1); color: var(--teal-400);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </div>
+            <div class="df-title">User Input</div>
+            <div class="df-desc">Forms, Sliders</div>
+          </div>
+          <div class="df-conn-h" style="grid-column: 2; grid-row: 1;" aria-hidden="true"><div class="line"></div></div>
+          <div class="df-node accent-gold" style="grid-column: 3; grid-row: 1;">
+            <div class="df-icon" style="background: rgba(237,196,90,0.12); color: var(--gold-400);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="df-title">AppContext</div>
+            <div class="df-desc">React State</div>
+          </div>
+          <div class="df-conn-h" style="grid-column: 4; grid-row: 1;" aria-hidden="true"><div class="line"></div></div>
+          <div class="df-node accent-teal" style="grid-column: 5; grid-row: 1;">
+            <div class="df-icon" style="background: rgba(45,212,191,0.1); color: var(--teal-400);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <div class="df-title">Components</div>
+            <div class="df-desc">Re-render</div>
+          </div>
+
+          <div class="df-conn-v" style="grid-column: 3; grid-row: 2 / span 3;" aria-hidden="true"><div class="line"></div></div>
+          <div class="df-conn-v" style="grid-column: 5; grid-row: 2;" aria-hidden="true"><div class="line"></div></div>
+
+          <div class="df-node" style="grid-column: 5; grid-row: 3;">
+            <div class="df-title">Calculation Engine</div>
+            <div class="df-desc">Pure Functions</div>
+          </div>
+
+          <div class="df-conn-v" style="grid-column: 5; grid-row: 4;" aria-hidden="true"><div class="line"></div></div>
+
+          <div class="df-node accent-rose" style="grid-column: 3 / span 3; grid-row: 5;">
+            <div class="df-icon" style="background: rgba(244,63,94,0.1); color: var(--rose-500);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+            </div>
+            <div class="df-title">Charts</div>
+            <div class="df-desc">Recharts Visualizations</div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+
+      <!-- ===== DESIGN SYSTEM ===== -->
+      <section class="content-section" id="design">
+        <h2>&#127912; Design System</h2>
+        <p><em><strong>Approachable authority.</strong> The product deals with financial stress — the design must feel warm and human while conveying competence and trustworthiness.</em></p>
+        <p>This is not a cold bank app. It is not a flashy crypto dashboard. It sits in the middle: <strong>professional enough to trust, warm enough to feel like help.</strong></p>
+
+        <h3 id="colors">Color Palette</h3>
+
+        <h4>Primary Colors</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Navy 950</strong></td><td><code>#0a0e1f</code></td><td>Deepest backgrounds, primary text on light</td></tr>
+              <tr><td><strong>Navy 900</strong></td><td><code>#12162b</code></td><td>Dark sections, sidebar, headers</td></tr>
+              <tr><td><strong>Navy 800</strong></td><td><code>#1e243d</code></td><td>Cards on dark, hover states</td></tr>
+              <tr><td><strong>Navy 700</strong></td><td><code>#2d3554</code></td><td>Secondary text on dark</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Accent Colors</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Gold 400</strong></td><td><code>#edc45a</code></td><td>Primary CTA buttons, highlights, trust signals</td></tr>
+              <tr><td><strong>Gold 500</strong></td><td><code>#d4961e</code></td><td>Hover states, focus rings</td></tr>
+              <tr><td><strong>Teal 500</strong></td><td><code>#14b8a6</code></td><td>Success states, positive metrics, settlement indicators</td></tr>
+              <tr><td><strong>Teal 400</strong></td><td><code>#2dd4bf</code></td><td>Chart lines, progress bars</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Surface Colors</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Cream 50</strong></td><td><code>#fdfcfa</code></td><td>Lightest background</td></tr>
+              <tr><td><strong>Cream 100</strong></td><td><code>#faf8f5</code></td><td>Page background, card surfaces</td></tr>
+              <tr><td><strong>Cream 200</strong></td><td><code>#f5f0e8</code></td><td>Elevated cards, hover backgrounds</td></tr>
+              <tr><td><strong>Cream 300</strong></td><td><code>#ebe4d6</code></td><td>Borders, dividers, disabled states</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <div class="info-box-title">&#128161; Why This Palette?</div>
+          <ul class="no-margin">
+            <li><strong>Cream instead of white</strong> — White feels sterile and corporate. Cream feels human, approachable, premium (think: high-end stationery, luxury hotels)</li>
+            <li><strong>Navy instead of black/gray</strong> — Navy conveys trust, authority, and timelessness without the harshness of pure black</li>
+            <li><strong>Gold accent</strong> — Signals wealth, value, and optimism. Used sparingly for maximum impact</li>
+            <li><strong>Teal for success</strong> — Distinct from generic green. Feels modern and fresh</li>
+          </ul>
+        </div>
+
+        <h3 id="typography">Typography</h3>
+        <p><strong>Font Family:</strong> <code>Inter</code> — chosen for excellent legibility at small sizes, variable font support, and a neutral personality.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Element</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Letter Spacing</th></tr></thead>
+            <tbody>
+              <tr><td>Display</td><td>72px</td><td>700</td><td>1.1</td><td>-1.5px</td></tr>
+              <tr><td>H1</td><td>48px</td><td>700</td><td>1.15</td><td>-1px</td></tr>
+              <tr><td>H2</td><td>36px</td><td>700</td><td>1.2</td><td>-0.5px</td></tr>
+              <tr><td>H3</td><td>24px</td><td>600</td><td>1.3</td><td>0</td></tr>
+              <tr><td>Body Large</td><td>18px</td><td>400</td><td>1.6</td><td>0</td></tr>
+              <tr><td>Body</td><td>16px</td><td>400</td><td>1.5</td><td>0</td></tr>
+              <tr><td>Caption</td><td>14px</td><td>500</td><td>1.4</td><td>0</td></tr>
+              <tr><td>Label</td><td>12px</td><td>600</td><td>1.3</td><td>0.5px (uppercase)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="components-ui">UI Component Patterns</h3>
+
+        <h4>Cards</h4>
+        <pre class="code-light">bg: cream-50
+border: 1px cream-300
+border-radius: 16px
+padding: 24px
+shadow: shadow-sm
+
+hover:
+  y: -4px
+  shadow: shadow-lg
+  transition: 300ms ease</pre>
+
+        <h4>Buttons</h4>
+        <p><strong>Primary (Gold):</strong> Background <code>gold-500</code>, Text <code>navy-950</code>, Border radius <code>12px</code>, Padding <code>16px 32px</code>, Font weight <code>700</code>. Hover: <code>scale(1.03)</code>, background <code>gold-400</code>.</p>
+        <p><strong>Secondary (Navy):</strong> Background <code>navy-900</code>, Text <code>cream-50</code>. Hover: <code>scale(1.03)</code>, background <code>navy-800</code>.</p>
+        <p><strong>Ghost:</strong> Background <code>transparent</code>, Border <code>1px white/10</code>, Text <code>cream-50</code>. Hover: <code>bg-white/10</code>.</p>
+
+        <h4>Inputs</h4>
+        <pre class="code-light">bg: white
+border: 1px cream-300
+border-radius: 12px
+padding: 12px 16px
+font-size: 14px
+
+focus:
+  border: gold-500
+  ring: 3px gold-500/30</pre>
+
+        <h3 id="animations">Animation Principles</h3>
+        <p>Every animation serves a purpose: entrance animations guide the eye, hover states provide tactile feedback, loading states manage perceived performance, and transitions maintain spatial context between views.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Duration</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td>150ms</td><td>Micro-interactions (button press, checkbox toggle)</td></tr>
+              <tr><td>300ms</td><td>Hover states, small transitions</td></tr>
+              <tr><td>500ms</td><td>Component entrances, page transitions</td></tr>
+              <tr><td>800ms</td><td>Large reveals, hero animations</td></tr>
+              <tr><td>1200ms</td><td>Chart animations, complex sequences</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Easing</th><th>Value</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ease Out</strong></td><td><code>cubic-bezier(0.25, 0.46, 0.45, 0.94)</code></td><td>Entrances, reveals</td></tr>
+              <tr><td><strong>Spring</strong></td><td><code>stiffness: 400, damping: 30</code></td><td>Hover effects, interactive elements</td></tr>
+              <tr><td><strong>Linear</strong></td><td><code>linear</code></td><td>Continuous loops, loading spinners</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Animation Patterns</h4>
+        <ol>
+          <li><strong>Staggered Children</strong> — Elements enter one after another (50ms delay between siblings)</li>
+          <li><strong>Parallax Scroll</strong> — Hero content moves at different speed than background</li>
+          <li><strong>Hover Lift</strong> — Cards translate Y -4px on hover with shadow increase</li>
+          <li><strong>Spring Scale</strong> — Buttons scale to 1.03 on hover, 0.97 on press</li>
+          <li><strong>Progressive Disclosure</strong> — Content reveals as user scrolls into viewport</li>
+        </ol>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ===== ONBOARDING ===== -->
+      <section class="content-section" id="onboarding">
+        <h2>&#128640; User Onboarding</h2>
+        <p>The onboarding flow is the <strong>critical conversion funnel</strong>. It must build trust, collect necessary information, and deliver an approval decision — all within 3 minutes. Every step includes progress indicators, explanation of "why we need this," and reassurance about data security.</p>
+
+        <h3 id="onboarding-steps">The 5-Step Flow</h3>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-num">1</div>
+            <h4>Basic Information</h4>
+            <p>Name, email, DOB, SSN last-4, address. Fields grouped logically with real-time validation.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">2</div>
+            <h4>Identity Verification</h4>
+            <p>Simulated ID upload with 2.5s processing, animated spinner, and 99.7% match confidence display.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">3</div>
+            <h4>Soft Credit Check</h4>
+            <p>3-second simulated pull. Explicit "no impact on score" messaging with estimated savings preview.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">4</div>
+            <h4>Debt Assessment</h4>
+            <p>Dynamic creditor list (add/remove). Income and expenses to calculate affordable escrow deposit.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">5</div>
+            <h4>Eligibility Decision</h4>
+            <p>Approval screen with total savings, timeline, legal protection confirmation, and "what happens next."</p>
+          </div>
+        </div>
+
+        <h3>Step-by-Step Details</h3>
+
+        <h4>Step 1: Basic Information</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Validation</th></tr></thead>
+            <tbody>
+              <tr><td>First Name</td><td>text</td><td>Yes</td><td>Non-empty</td></tr>
+              <tr><td>Last Name</td><td>text</td><td>Yes</td><td>Non-empty</td></tr>
+              <tr><td>Email</td><td>email</td><td>Yes</td><td>Valid email format</td></tr>
+              <tr><td>Phone</td><td>tel</td><td>Yes</td><td>US phone format</td></tr>
+              <tr><td>Date of Birth</td><td>date</td><td>Yes</td><td>18+ years old</td></tr>
+              <tr><td>SSN Last 4</td><td>password</td><td>Yes</td><td>4 digits</td></tr>
+              <tr><td>Street Address</td><td>text</td><td>Yes</td><td>Non-empty</td></tr>
+              <tr><td>City / State / ZIP</td><td>text</td><td>Yes</td><td>Standard validation</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Step 2: Identity Verification</h4>
+        <div class="diagram-flow-v" role="list" aria-label="Identity verification process flow">
+          <div class="flow-step" role="listitem">
+            <div class="flow-step-icon" style="background: rgba(237,196,90,0.12); color: var(--gold-400);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="flow-step-content">
+              <div class="flow-step-title">Simulated Upload UI</div>
+              <div class="flow-step-desc">2.5s delay with drag-and-drop interface</div>
+            </div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-step" role="listitem">
+            <div class="flow-step-icon" style="background: rgba(20,184,166,0.1); color: var(--teal-400);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+            </div>
+            <div class="flow-step-content">
+              <div class="flow-step-title">Processing Animation</div>
+              <div class="flow-step-desc">Spinner with real-time status text updates</div>
+            </div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-step" role="listitem">
+            <div class="flow-step-icon" style="background: rgba(34,197,94,0.1); color: #22c55e;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="flow-step-content">
+              <div class="flow-step-title">Success Screen</div>
+              <div class="flow-step-desc">Match: 99.7% · Fraud: Pass · State: Confirmed</div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Step 3: Soft Credit Check</h4>
+        <div class="warning-box">
+          <div class="warning-box-title">&#9888; Critical Messaging</div>
+          <p>The user's <strong>credit score does NOT disqualify them</strong>. This must be explicitly stated:</p>
+          <p class="italic-shift">"Your credit score does not disqualify you. Debt settlement is specifically designed for people who cannot qualify for consolidation loans. We use this data to build your personalized negotiation strategy."</p>
+        </div>
+
+        <h4>Step 4: Debt Assessment</h4>
+        <p>Users can add/remove credit cards dynamically. Additional fields include annual income and monthly expenses to calculate affordable escrow deposit.</p>
+
+        <h3 id="eligibility">Eligibility Criteria</h3>
+        <p>For the POC, all users are approved. In production, criteria would include:</p>
+        <ul>
+          <li>Total unsecured debt: <strong>$7,500–$100,000</strong></li>
+          <li>Minimum monthly disposable income: <strong>$200+</strong></li>
+          <li>State availability (not all states allow debt settlement)</li>
+          <li>Debt type: Credit cards, personal loans, medical bills (no federal student loans, no secured debt)</li>
+        </ul>
+
+        <h3 id="conversion">Conversion Optimization</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Drop-off Point</th><th>Recovery Action</th></tr></thead>
+            <tbody>
+              <tr><td>Step 1 (Basic Info)</td><td>Exit-intent popup: "Wait! Your savings estimate is almost ready."</td></tr>
+              <tr><td>Step 2 (ID Verify)</td><td>Email after 1 hour: "Complete your verification in 30 seconds"</td></tr>
+              <tr><td>Step 3 (Credit Check)</td><td>SMS after 2 hours: "Your credit check results are waiting"</td></tr>
+              <tr><td>Step 4 (Debt Assessment)</td><td>Email after 24 hours: "You could save $XX,XXX. Finish your profile."</td></tr>
+              <tr><td>Post-Approval</td><td>Onboarding sequence: "Welcome to DebtOptimize. Here's what to expect."</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+
+      <!-- ===== PRODUCT ===== -->
+      <section class="content-section" id="product">
+        <h2>&#128200; Product Documentation</h2>
+
+        <h3>Product Positioning</h3>
+        <blockquote>
+          <p><strong>Debt settlement for the middle class — without the scams, hidden fees, or legal exposure.</strong></p>
+        </blockquote>
+
+        <h4>The Problem</h4>
+        <ul>
+          <li><strong>$1.13 trillion</strong> in total US credit card debt (2024)</li>
+          <li>Average APR: <strong>24.92%</strong> (highest in decades)</li>
+          <li>Minimum payments barely cover interest — principal never decreases</li>
+          <li>Banks deny consolidation loans to anyone with a credit score under 670</li>
+          <li>Bankruptcy destroys credit for 7–10 years and carries social stigma</li>
+          <li>Existing debt settlement companies charge 15–25% of enrolled debt in fees</li>
+        </ul>
+
+        <h4>Target Demographic</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Attribute</th><th>Profile</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Income</strong></td><td>$50,000–$150,000 household</td></tr>
+              <tr><td><strong>Debt</strong></td><td>$15,000–$75,000 unsecured (credit cards, personal loans)</td></tr>
+              <tr><td><strong>Credit Score</strong></td><td>580–669 (Fair) — too low for consolidation, too high for bankruptcy aid</td></tr>
+              <tr><td><strong>Age</strong></td><td>30–55</td></tr>
+              <tr><td><strong>Location</strong></td><td>Suburban, mid-size cities</td></tr>
+              <tr><td><strong>Psychographic</strong></td><td>Responsible but overwhelmed. Has tried budgeting apps. Feels shame about debt. Wants a structured path out.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="competitive">Competitive Analysis</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Competitor</th><th>Model</th><th>Fee Structure</th><th>Legal Protection</th><th>Our Advantage</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Freedom Debt Relief</strong></td><td>Settlement</td><td>15-25% of enrolled debt</td><td><span class="badge badge-danger">No</span></td><td>We charge less, show everything</td></tr>
+              <tr><td><strong>National Debt Relief</strong></td><td>Settlement</td><td>18-25% of enrolled debt</td><td><span class="badge badge-danger">No</span></td><td>We include legal protection</td></tr>
+              <tr><td><strong>SoFi</strong></td><td>Consolidation loan</td><td>Origination fees</td><td><span class="badge badge-warn">N/A</span></td><td>They require good credit</td></tr>
+              <tr><td><strong>LendingClub</strong></td><td>P2P consolidation</td><td>Origination fees</td><td><span class="badge badge-warn">N/A</span></td><td>They require good credit</td></tr>
+              <tr><td><strong>Credit Karma</strong></td><td>Referral marketplace</td><td>Free (ads)</td><td><span class="badge badge-warn">N/A</span></td><td>They don't actually settle debt</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="business-model">Business Model</h3>
+        <div class="diagram-flow-v" role="list" aria-label="Business model flow from client deposit to settlements">
+          <p style="text-align: center; font-size: 13px; color: var(--navy-700); margin-bottom: 8px;"><strong>Client enrolls $30,000 in debt</strong></p>
+          <div class="flow-step" role="listitem">
+            <div class="flow-step-icon" style="background: rgba(20,184,166,0.1); color: var(--teal-400);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <div class="flow-step-content">
+              <div class="flow-step-title">Monthly Deposit</div>
+              <div class="flow-step-desc">$800/mo into escrow account</div>
+            </div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-step" role="listitem">
+            <div class="flow-step-icon" style="background: rgba(237,196,90,0.12); color: var(--gold-400);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="flow-step-content">
+              <div class="flow-step-title">Platform Fee</div>
+              <div class="flow-step-desc">$49/month — our revenue</div>
+            </div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-step" role="listitem">
+            <div class="flow-step-icon" style="background: rgba(45,212,191,0.1); color: var(--teal-500);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="flow-step-content">
+              <div class="flow-step-title">Settlements</div>
+              <div class="flow-step-desc">Paid from accumulated escrow</div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Unit Economics (Estimate)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Average enrolled debt</td><td>$32,000</td></tr>
+              <tr><td>Average settlement %</td><td>48% of balance</td></tr>
+              <tr><td>Average program duration</td><td>30 months</td></tr>
+              <tr><td>Platform fee</td><td>$49/mo × 30 = $1,470</td></tr>
+              <tr><td>Gross revenue per client</td><td>~$1,470</td></tr>
+              <tr><td>CAC (customer acquisition cost)</td><td>Target &lt;$400</td></tr>
+              <tr><td>Gross margin</td><td>~65%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>North Star Metrics</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric</th><th>Target</th><th>Measurement</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Enrollment Rate</strong></td><td>15%</td><td>% of qualified leads who enroll</td></tr>
+              <tr><td><strong>Settlement Rate</strong></td><td>85%</td><td>% of enrolled debts successfully settled</td></tr>
+              <tr><td><strong>Avg. Reduction</strong></td><td>50%+</td><td>% of balance saved across all clients</td></tr>
+              <tr><td><strong>Program Completion</strong></td><td>70%</td><td>% of clients who finish the program</td></tr>
+              <tr><td><strong>NPS</strong></td><td>50+</td><td>Net Promoter Score</td></tr>
+              <tr><td><strong>Legal Incident Rate</strong></td><td>&lt;5%</td><td>% of clients who face creditor lawsuits</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="roadmap">Feature Roadmap</h3>
+
+        <h4>Phase 1: MVP (Current POC) <span class="badge badge-success">Complete</span></h4>
+        <ul class="checklist">
+          <li>Landing page with savings calculator</li>
+          <li>5-step eligibility onboarding</li>
+          <li>Simulated auth (Google OAuth + Magic Link)</li>
+          <li>Dashboard with escrow tracking</li>
+          <li>Creditor negotiation board</li>
+          <li>Impact simulator with settlement sliders</li>
+          <li>Admin panel for rate management</li>
+        </ul>
+
+        <h4>Phase 2: Production Launch</h4>
+        <ul>
+          <li>Real identity verification (Socure/Onfido integration)</li>
+          <li>Real soft credit pull (Experian/TransUnion API)</li>
+          <li>Bank account linking (Plaid integration)</li>
+          <li>FDIC-insured escrow account (partner bank API)</li>
+          <li>Real creditor negotiation workflow</li>
+          <li>SMS/email notification system</li>
+          <li>Mobile app (React Native)</li>
+        </ul>
+
+        <h4>Phase 3: Scale</h4>
+        <ul>
+          <li>AI-powered negotiation strategy optimization</li>
+          <li>Credit rebuilding program (secured credit card partnerships)</li>
+          <li>Financial wellness content library</li>
+          <li>Referral program with incentives</li>
+          <li>B2B offering (employer-sponsored debt relief)</li>
+          <li>Multi-state expansion</li>
+        </ul>
+
+        <h3 id="compliance">Compliance &amp; Legal</h3>
+
+        <div class="warning-box">
+          <div class="warning-box-title">&#9888; Regulatory Landscape</div>
+          <p>Debt settlement is regulated at both federal and state levels:</p>
+          <ul class="tight-top">
+            <li><strong>Federal:</strong> FTC Telemarketing Sales Rule (TSR), CFPB oversight, no upfront fees before settlement</li>
+            <li><strong>State-Level:</strong> Some states prohibit debt settlement entirely. Some require specific licensing. Some cap fees.</li>
+          </ul>
+        </div>
+
+        <h4>Required Disclaimers</h4>
+        <blockquote>
+          <p>"DebtOptimize is a debt settlement company. We do not provide loans, credit repair, or bankruptcy services. Results vary and are not guaranteed. Not available in all states."</p>
+        </blockquote>
+
+        <h4>Brand Voice</h4>
+        <div class="table-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Do</th><th>Don't</th></tr></thead>
+            <tbody>
+              <tr><td>Speak like a trusted advisor</td><td>Sound like a salesperson</td></tr>
+              <tr><td>Use "we" and "our team"</td><td>Use corporate jargon</td></tr>
+              <tr><td>Acknowledge the emotional weight of debt</td><td>Minimize or dismiss concerns</td></tr>
+              <tr><td>Be specific about numbers</td><td>Use vague promises ("save thousands!")</td></tr>
+              <tr><td>Empower the user</td><td>Shame or blame</td></tr>
+              <tr><td>Show real client results</td><td>Use stock photos or fake testimonials</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ===== DEPLOYMENT ===== -->
+      <section class="content-section" id="deployment">
+        <h2>&#128640; Deployment Guide</h2>
+
+        <h3>Quick Start</h3>
+        <h4>Prerequisites</h4>
+        <ul>
+          <li><strong>Node.js</strong> 20.x or higher</li>
+          <li><strong>npm</strong> 10.x or higher (or pnpm/yarn)</li>
+          <li><strong>Git</strong></li>
+        </ul>
+
+        <h4>Installation</h4>
+        <pre><code>git clone https://github.com/your-org/debt-optimize.git
+cd debt-optimize
+npm install
+npm run dev</code></pre>
+        <p>The development server will start at <code>http://localhost:5173</code></p>
+
+        <h3 id="build-commands">Build Commands</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Description</th><th>Output</th></tr></thead>
+            <tbody>
+              <tr><td><code>npm run dev</code></td><td>Development server with HMR</td><td><code>localhost:5173</code></td></tr>
+              <tr><td><code>npm run build</code></td><td>Production build</td><td><code>./dist/</code></td></tr>
+              <tr><td><code>npm run preview</code></td><td>Preview production build locally</td><td><code>localhost:4173</code></td></tr>
+              <tr><td><code>npm run lint</code></td><td>Run ESLint</td><td>Terminal output</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Production Build Output</h3>
+        <ul class="file-tree" role="tree" aria-label="Production build output file structure">
+          <li class="ft-folder" role="treeitem">dist/</li>
+          <li class="ft-file" role="treeitem">
+            <span class="ft-name">index.html</span>
+            <span class="ft-meta">Entry HTML file</span>
+          </li>
+          <li class="ft-folder" role="treeitem">assets/</li>
+          <li class="ft-file nested" role="treeitem">
+            <span class="ft-name">index-XXXXXX.js</span>
+            <span class="ft-meta">Bundled JavaScript (~800 KB / 237 KB gzipped)</span>
+          </li>
+          <li class="ft-file nested" role="treeitem">
+            <span class="ft-name">index-XXXXXX.css</span>
+            <span class="ft-meta">Bundled CSS (~49 KB / 8.8 KB gzipped)</span>
+          </li>
+          <li class="ft-file nested" role="treeitem">
+            <span class="ft-name">...</span>
+            <span class="ft-meta">Other assets</span>
+          </li>
+          <li class="ft-file" role="treeitem">
+            <span class="ft-name">favicon.svg</span>
+          </li>
+        </ul>
+
+        <h3 id="platforms">Deployment Platforms</h3>
+
+        <h4>Vercel (Recommended)</h4>
+        <pre><code>npm i -g vercel
+vercel --prod</code></pre>
+        <p>Or connect your GitHub repository to Vercel for automatic deployments on push.</p>
+
+        <h4>Netlify</h4>
+        <pre><code>npm i -g netlify-cli
+netlify deploy --prod --dir=dist</code></pre>
+
+        <h4>AWS S3 + CloudFront</h4>
+        <pre><code>npm run build
+aws s3 sync dist/ s3://your-bucket-name --delete
+aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"</code></pre>
+
+        <h4>Docker</h4>
+        <pre><code># Build and run
+docker build -t debt-optimize .
+docker run -p 8080:80 debt-optimize</code></pre>
+
+        <h3>Environment Variables</h3>
+        <p>For the POC, all data is client-side. In production, these variables would be needed:</p>
+        <pre><code>VITE_API_BASE_URL=https://api.debtoptimize.com
+VITE_AUTH_DOMAIN=auth.debtoptimize.com
+VITE_STRIPE_PUBLIC_KEY=pk_live_...
+VITE_PLAID_CLIENT_ID=...
+VITE_SENTRY_DSN=https://...</code></pre>
+        <p><em>Note: All <code>VITE_</code> prefixed variables are exposed to the client. Never store secrets here.</em></p>
+
+        <h3 id="monitoring">Monitoring &amp; Security</h3>
+
+        <h4>Recommended Tools</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Sentry</strong></td><td>Error tracking</td></tr>
+              <tr><td><strong>Google Analytics 4</strong></td><td>User behavior</td></tr>
+              <tr><td><strong>Hotjar</strong></td><td>Heatmaps &amp; recordings</td></tr>
+              <tr><td><strong>Vercel Analytics</strong></td><td>Web vitals</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Security Headers</h4>
+        <pre><code>Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()</code></pre>
+
+        <h4>Performance Optimization Checklist</h4>
+        <ul class="checklist">
+          <li>Enable gzip or brotli compression on your web server</li>
+          <li>Set Cache-Control headers for static assets (max-age: 31536000)</li>
+          <li>Use a CDN for global asset delivery</li>
+          <li>Enable HTTP/2 or HTTP/3 on your server</li>
+          <li>Add preconnect hints for external domains</li>
+          <li>Implement route-based code splitting for production</li>
+        </ul>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ===== TECH STACK SUMMARY ===== -->
+      <section class="content-section">
+        <h2>&#128295; Tech Stack Summary</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Framework</strong></td><td>React 19 + TypeScript</td><td>UI components with type safety</td></tr>
+              <tr><td><strong>Build Tool</strong></td><td>Vite 8</td><td>Fast dev server &amp; optimized builds</td></tr>
+              <tr><td><strong>Styling</strong></td><td>Tailwind CSS v4</td><td>Utility-first CSS with custom design tokens</td></tr>
+              <tr><td><strong>Animations</strong></td><td>Framer Motion</td><td>Spring physics, gestures, AnimatePresence</td></tr>
+              <tr><td><strong>Charts</strong></td><td>Recharts</td><td>Interactive debt payoff visualizations</td></tr>
+              <tr><td><strong>Icons</strong></td><td>Lucide React</td><td>Clean, consistent iconography</td></tr>
+              <tr><td><strong>Auth</strong></td><td>Custom simulation</td><td>Google OAuth + Email Magic Link flows</td></tr>
+              <tr><td><strong>State</strong></td><td>React Context</td><td>Lightweight global state management</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="doc-footer">
+        <p><strong>Built with precision. Designed for trust.</strong></p>
+        <p class="shift-top-sm">DebtOptimize &middot; Same Payment, Faster Freedom</p>
+        <p class="footer-note">This document was generated on April 18, 2026 for Andrew and the DebtOptimize founding team.<br>All financial projections are estimates. Not financial advice.</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
+  <script>
+    // Mobile sidebar toggle
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+    function closeSidebar() {
+      if (window.innerWidth <= 1024) {
+        document.getElementById('sidebar').classList.remove('open');
+      }
+    }
+
+    // Active nav link highlighting on scroll
+    const sections = document.querySelectorAll('section[id], h2[id], h3[id], h4[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function onScroll() {
+      const scrollPos = window.scrollY + 120;
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        if (scrollPos >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+
+      // Back to top button
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 600) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+      const sidebar = document.getElementById('sidebar');
+      const toggle = document.querySelector('.mobile-toggle');
+      if (window.innerWidth <= 1024 && sidebar.classList.contains('open')) {
+        if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+          sidebar.classList.remove('open');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

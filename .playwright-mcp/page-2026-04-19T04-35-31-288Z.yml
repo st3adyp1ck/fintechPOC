@@ -1,0 +1,90 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e6]:
+      - img [ref=e8]
+      - text: DebtOptimize
+    - navigation [ref=e11]:
+      - button "Dashboard" [ref=e12]:
+        - img [ref=e13]
+        - text: Dashboard
+      - button "Impact Simulator" [ref=e18]:
+        - img [ref=e19]
+        - text: Impact Simulator
+      - button "Creditors" [ref=e21]:
+        - img [ref=e22]
+        - text: Creditors
+      - button "Admin" [ref=e26]:
+        - img [ref=e27]
+        - text: Admin
+    - generic [ref=e29]:
+      - button "Reset Demo" [ref=e30]:
+        - img [ref=e31]
+        - text: Reset Demo
+      - generic [ref=e34]:
+        - text: Alex Mitchell
+        - text: alex.mitchell@example.com
+  - main [ref=e35]:
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - heading "Dashboard" [level=1] [ref=e39]
+        - paragraph [ref=e40]: Same Payment, Faster Freedom
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: $30,000
+          - paragraph [ref=e44]: Total Debt
+        - generic [ref=e45]: A
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - img [ref=e52]
+            - text: Total Remaining
+          - paragraph [ref=e54]: $30,000
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - img [ref=e58]
+            - text: Interest Saved
+          - paragraph [ref=e61]: $11,041
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - img [ref=e65]
+            - text: Months Saved
+          - paragraph [ref=e68]: "8"
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - img [ref=e72]
+            - text: Projected Freedom
+          - paragraph [ref=e74]: Feb 2029
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - img [ref=e78]
+            - heading "Progress to Freedom" [level=3] [ref=e82]
+          - generic [ref=e83]: 0.0% Complete
+        - generic [ref=e84]: "Started: $30,000Goal: $0"
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - img [ref=e88]
+            - heading "Current Path" [level=3] [ref=e91]
+          - generic [ref=e92]:
+            - generic [ref=e93]: Months to Payoff42
+            - generic [ref=e94]: Total Interest Paid$16,018
+            - generic [ref=e95]: Total Paid$46,018
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - img [ref=e99]
+            - heading "Platform Path" [level=3] [ref=e102]
+          - generic [ref=e103]:
+            - generic [ref=e104]: Months to Payoff34
+            - generic [ref=e105]: Total Interest Paid$4,977
+            - generic [ref=e106]: Total Paid$34,977
+          - paragraph [ref=e108]: You save $11,041 and become debt-free 8 months sooner
+      - heading "Balance Over Time" [level=3] [ref=e110]
+    - paragraph [ref=e112]:
+      - text: Simulation only. Results based on successful creditor negotiation. Not a binding offer of credit.
+      - link "Privacy" [ref=e113] [cursor=pointer]:
+        - /url: "#"
+      - text: ·
+      - link "Terms" [ref=e114] [cursor=pointer]:
+        - /url: "#"

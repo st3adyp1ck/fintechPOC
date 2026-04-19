@@ -1,0 +1,1195 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: D
+        - generic [ref=e6]:
+          - generic [ref=e7]: DebtOptimize
+          - generic [ref=e8]: Documentation
+      - generic [ref=e9]:
+        - text: Same Payment. Faster Freedom.
+        - text: A debt settlement platform built for the middle class.
+      - generic [ref=e10]: Overview
+      - link "Product Overview" [ref=e11] [cursor=pointer]:
+        - /url: "#overview"
+      - link "What You're Looking At" [ref=e12] [cursor=pointer]:
+        - /url: "#what-is-this"
+      - link "Why This Exists" [ref=e13] [cursor=pointer]:
+        - /url: "#why-exists"
+      - link "Differentiation" [ref=e14] [cursor=pointer]:
+        - /url: "#differentiation"
+      - generic [ref=e15]: Architecture
+      - link "System Overview" [ref=e16] [cursor=pointer]:
+        - /url: "#architecture"
+      - link "State Management" [ref=e17] [cursor=pointer]:
+        - /url: "#state-management"
+      - link "Components" [ref=e18] [cursor=pointer]:
+        - /url: "#components"
+      - link "Calculation Engine" [ref=e19] [cursor=pointer]:
+        - /url: "#calc-engine"
+      - link "Data Flow" [ref=e20] [cursor=pointer]:
+        - /url: "#data-flow"
+      - generic [ref=e21]: Design System
+      - link "Design Philosophy" [ref=e22] [cursor=pointer]:
+        - /url: "#design"
+      - link "Color Palette" [ref=e23] [cursor=pointer]:
+        - /url: "#colors"
+      - link "Typography" [ref=e24] [cursor=pointer]:
+        - /url: "#typography"
+      - link "UI Components" [ref=e25] [cursor=pointer]:
+        - /url: "#components-ui"
+      - link "Animation System" [ref=e26] [cursor=pointer]:
+        - /url: "#animations"
+      - generic [ref=e27]: Onboarding
+      - link "User Journey" [ref=e28] [cursor=pointer]:
+        - /url: "#onboarding"
+      - link "5-Step Flow" [ref=e29] [cursor=pointer]:
+        - /url: "#onboarding-steps"
+      - link "Eligibility Criteria" [ref=e30] [cursor=pointer]:
+        - /url: "#eligibility"
+      - link "Conversion Optimization" [ref=e31] [cursor=pointer]:
+        - /url: "#conversion"
+      - generic [ref=e32]: Product
+      - link "Product Positioning" [ref=e33] [cursor=pointer]:
+        - /url: "#product"
+      - link "Competitive Analysis" [ref=e34] [cursor=pointer]:
+        - /url: "#competitive"
+      - link "Business Model" [ref=e35] [cursor=pointer]:
+        - /url: "#business-model"
+      - link "Feature Roadmap" [ref=e36] [cursor=pointer]:
+        - /url: "#roadmap"
+      - link "Compliance & Legal" [ref=e37] [cursor=pointer]:
+        - /url: "#compliance"
+      - generic [ref=e38]: Deployment
+      - link "Getting Started" [ref=e39] [cursor=pointer]:
+        - /url: "#deployment"
+      - link "Build Commands" [ref=e40] [cursor=pointer]:
+        - /url: "#build-commands"
+      - link "Deployment Platforms" [ref=e41] [cursor=pointer]:
+        - /url: "#platforms"
+      - link "Monitoring & Security" [ref=e42] [cursor=pointer]:
+        - /url: "#monitoring"
+    - main [ref=e43]:
+      - generic [ref=e45]:
+        - generic [ref=e46]: Project Documentation
+        - heading "DebtOptimize Documentation Package" [level=1] [ref=e48]:
+          - text: DebtOptimize
+          - emphasis [ref=e49]: Documentation Package
+        - paragraph [ref=e50]: A complete technical and product guide for the DebtOptimize debt settlement platform — built for Andrew and the founding team.
+        - generic [ref=e51]:
+          - generic [ref=e52]: React 19 + TypeScript
+          - generic [ref=e54]: Vite 8 + Tailwind CSS v4
+          - generic [ref=e56]: Framer Motion + Recharts
+          - generic [ref=e58]: "Status: Production Build Ready"
+      - generic [ref=e60]:
+        - heading "📈 Product Overview" [level=2] [ref=e61]
+        - paragraph [ref=e62]:
+          - strong [ref=e63]: DebtOptimize
+          - text: is a debt settlement platform targeting the American middle class — households earning
+          - strong [ref=e64]: $50K–$150K
+          - text: who carry significant credit card debt but cannot qualify for traditional consolidation loans.
+        - generic [ref=e65]:
+          - generic [ref=e66]: ⚡ The Core Value Proposition
+          - paragraph [ref=e67]:
+            - text: Negotiate your credit card debt down by an average of
+            - strong [ref=e68]: 52%
+            - text: — with no upfront fees, legal protection included, and a credit rebuilding program that actually works.
+            - strong [ref=e69]: Same monthly payment. Dramatically faster freedom.
+        - heading "What You're Looking At" [level=3] [ref=e70]
+        - paragraph [ref=e71]:
+          - text: This is a
+          - strong [ref=e72]: high-fidelity functional prototype
+          - text: built for live client demonstrations and investor pitches. It demonstrates how a structured debt settlement platform — complete with KYC onboarding, real-time dashboards, and negotiation simulation — can dramatically improve outcomes for middle-class Americans trapped in high-interest debt.
+        - blockquote [ref=e73]:
+          - paragraph [ref=e74]:
+            - strong [ref=e75]: "Target Audience:"
+            - text: Households earning $50K–$150K who cannot qualify for traditional debt consolidation loans but need structured relief from high-interest credit card debt.
+        - heading "Why This Exists" [level=3] [ref=e76]
+        - paragraph [ref=e77]:
+          - text: The debt relief industry is broken. Companies hide fees, ignore calls, and leave clients exposed to creditor lawsuits.
+          - strong [ref=e78]: "DebtOptimize was built differently:"
+        - table [ref=e80]:
+          - rowgroup [ref=e81]:
+            - row "The Old Way DebtOptimize" [ref=e82]:
+              - columnheader "The Old Way" [ref=e83]
+              - columnheader "DebtOptimize" [ref=e84]
+          - rowgroup [ref=e85]:
+            - row "Upfront fees before any results $0 upfront — we only get paid when we save you money" [ref=e86]:
+              - cell "Upfront fees before any results" [ref=e87]
+              - cell "$0 upfront — we only get paid when we save you money" [ref=e88]:
+                - strong [ref=e89]: $0 upfront
+                - text: — we only get paid when we save you money
+            - row "No legal protection Attorney network included — if you're sued, we defend you" [ref=e90]:
+              - cell "No legal protection" [ref=e91]
+              - cell "Attorney network included — if you're sued, we defend you" [ref=e92]:
+                - strong [ref=e93]: Attorney network included
+                - text: — if you're sued, we defend you
+            - row "Opaque process Real-time dashboard — watch every negotiation as it happens" [ref=e94]:
+              - cell "Opaque process" [ref=e95]
+              - cell "Real-time dashboard — watch every negotiation as it happens" [ref=e96]:
+                - strong [ref=e97]: Real-time dashboard
+                - text: — watch every negotiation as it happens
+            - row "One-size-fits-all Personalized strategy — based on your actual credit profile" [ref=e98]:
+              - cell "One-size-fits-all" [ref=e99]
+              - cell "Personalized strategy — based on your actual credit profile" [ref=e100]:
+                - strong [ref=e101]: Personalized strategy
+                - text: — based on your actual credit profile
+            - row "Credit score destroyed forever Free credit rebuilding — back to 700+ in 24 months" [ref=e102]:
+              - cell "Credit score destroyed forever" [ref=e103]
+              - cell "Free credit rebuilding — back to 700+ in 24 months" [ref=e104]:
+                - strong [ref=e105]: Free credit rebuilding
+                - text: — back to 700+ in 24 months
+        - heading "Core Features at a Glance" [level=3] [ref=e106]
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - generic [ref=e109]: "01"
+            - heading "Stunning Landing Page" [level=4] [ref=e110]
+            - paragraph [ref=e111]: Conversion-optimized with parallax hero, animated counters, interactive savings calculator, and social proof.
+          - generic [ref=e112]:
+            - generic [ref=e113]: "02"
+            - heading "5-Step Eligibility Flow" [level=4] [ref=e114]
+            - paragraph [ref=e115]: KYC onboarding with simulated identity verification, soft credit pull, and dynamic debt assessment.
+          - generic [ref=e116]:
+            - generic [ref=e117]: "03"
+            - heading "Simulated Auth System" [level=4] [ref=e118]
+            - paragraph [ref=e119]: Google OAuth and Email Magic Link flows with realistic loading states and auto-redirect.
+          - generic [ref=e120]:
+            - generic [ref=e121]: "04"
+            - heading "Interactive Dashboard" [level=4] [ref=e122]
+            - paragraph [ref=e123]: Escrow tracking, creditor settlement table, side-by-side comparisons, and balance-over-time charts.
+          - generic [ref=e124]:
+            - generic [ref=e125]: "05"
+            - heading "Impact Simulator" [level=4] [ref=e126]
+            - paragraph [ref=e127]: Per-card settlement sliders with real-time metric updates and visual payoff curve comparison.
+          - generic [ref=e128]:
+            - generic [ref=e129]: "06"
+            - heading "Admin Controls" [level=4] [ref=e130]
+            - paragraph [ref=e131]: Toggle negotiated APRs, adjust platform fees, and view weighted average calculations.
+        - heading "The \"Stuck Middle\" Problem" [level=3] [ref=e132]
+        - img "Three-column comparison showing Lower Class with Bankruptcy Only leading to 7-10 year credit hit, Middle Class stuck paying 29% APR forever, and Upper Class with Consolidation Loan plus Advisor leading to low-rate refinancing" [ref=e134]:
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - img [ref=e138]
+              - generic [ref=e140]: Lower Class
+              - generic [ref=e141]: Bankruptcy Only Option
+            - img [ref=e143]
+            - generic [ref=e145]:
+              - strong [ref=e146]: 7–10 year
+              - text: credit hit
+          - generic [ref=e147]:
+            - generic [ref=e148]:
+              - img [ref=e150]
+              - generic [ref=e153]: Middle Class
+              - generic [ref=e154]: Can't qualify for anything
+            - img [ref=e156]
+            - generic [ref=e158]:
+              - strong [ref=e159]: Paying 29%
+              - text: APR forever
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - img [ref=e163]
+              - generic [ref=e165]: Upper Class
+              - generic [ref=e166]: Consolidation Loan + Advisor
+            - img [ref=e168]
+            - generic [ref=e170]:
+              - strong [ref=e171]: Low-rate refi
+              - text: "& tax strategies"
+        - paragraph [ref=e172]:
+          - strong [ref=e173]: DebtOptimize exists for the middle column.
+          - text: These households earn too much for bankruptcy aid but are denied for consolidation loans. They are stuck paying 24–29% APR with balances that never decrease.
+      - separator [ref=e174]
+      - generic [ref=e175]:
+        - heading "🏗 System Architecture" [level=2] [ref=e176]
+        - paragraph [ref=e177]: DebtOptimize is a single-page application (SPA) built with React 19, TypeScript, and Vite. All state is managed client-side for the POC — no backend services are required.
+        - img "System architecture diagram showing Browser layer containing React components, AppContext state management, and the Calculation Engine" [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]: Browser Layer
+            - generic [ref=e181]:
+              - generic [ref=e182]: Landing Page
+              - generic [ref=e183]: Onboarding Flow
+              - generic [ref=e184]: Dashboard Suite
+              - generic [ref=e185]: AuthModal
+              - generic [ref=e186]: Custom Cursor
+              - generic [ref=e187]: Admin Panel
+              - generic [ref=e188]: Creditor Board
+              - generic [ref=e189]: Impact Simulator
+          - img [ref=e191]
+          - generic [ref=e193]:
+            - generic [ref=e194]: AppContext (React Context API)
+            - generic [ref=e195]: Global state provider for profile, cards, payments, and view routing
+          - img [ref=e197]
+          - generic [ref=e199]:
+            - generic [ref=e200]: Calculation Engine (src/data.ts)
+            - generic [ref=e201]: Settlement math, payoff timelines, weighted APR, comparison logic
+          - generic [ref=e202]: React 19 · TypeScript · Vite · Tailwind CSS v4 · Framer Motion · Recharts · Lucide React
+        - heading "State Management" [level=3] [ref=e203]
+        - paragraph [ref=e204]:
+          - text: The application uses a single
+          - strong [ref=e205]: React Context provider
+          - text: for global state. This is intentional for the POC — it avoids the complexity of Redux/Zustand while providing full type safety.
+        - code [ref=e207]: "interface AppState { profile: UserProfile; // User's personal information cards: DebtCard[]; // Array of credit card debts totalMonthlyPayment: number; // Total monthly escrow deposit platformFee: number; // Monthly platform fee escrowBalance: number; // Current escrow account balance adminMode: boolean; // Admin panel visibility demoMode: boolean; // Demo data toggle onboardingStep: OnboardingStep; // Current onboarding phase currentView: AppView; // Active screen eligibilityStatus: 'pending' | 'approved' | 'declined'; idVerified: boolean; // Identity verification complete creditChecked: boolean; // Soft credit pull complete }"
+        - heading "Component Architecture" [level=3] [ref=e208]
+        - heading "LandingPage" [level=4] [ref=e209]
+        - paragraph [ref=e210]:
+          - strong [ref=e211]: "Purpose:"
+          - text: Conversion-focused entry point
+        - list [ref=e212]:
+          - listitem [ref=e213]:
+            - text: Parallax hero section with
+            - code [ref=e214]: useScroll
+            - text: +
+            - code [ref=e215]: useTransform
+          - listitem [ref=e216]: Animated counter components triggered by IntersectionObserver
+          - listitem [ref=e217]: Interactive savings calculator with real-time settlement math
+          - listitem [ref=e218]:
+            - text: FAQ accordion with
+            - code [ref=e219]: AnimatePresence
+            - text: for smooth open/close
+          - listitem [ref=e220]: Mobile-responsive navigation with hamburger menu
+        - heading "Onboarding (5-Step Flow)" [level=4] [ref=e221]
+        - paragraph [ref=e222]:
+          - strong [ref=e223]: "Purpose:"
+          - text: Eligibility verification and debt assessment
+        - generic [ref=e224]:
+          - 'list "Onboarding flow: 5 sequential steps" [ref=e225]':
+            - listitem [ref=e226]:
+              - generic [ref=e227]: "1"
+              - generic [ref=e228]:
+                - text: Basic
+                - text: Info
+            - listitem [ref=e229]:
+              - generic [ref=e230]: "2"
+              - generic [ref=e231]:
+                - text: Identity
+                - text: Verify
+            - listitem [ref=e232]:
+              - generic [ref=e233]: "3"
+              - generic [ref=e234]:
+                - text: Credit
+                - text: Check
+            - listitem [ref=e235]:
+              - generic [ref=e236]: "4"
+              - generic [ref=e237]:
+                - text: Debt
+                - text: Assessment
+            - listitem [ref=e238]:
+              - generic [ref=e239]: "5"
+              - generic [ref=e240]:
+                - text: Eligibility
+                - text: Decision
+          - generic [ref=e242]: Approved / Declined
+          - paragraph [ref=e243]: "Gated: cannot skip steps"
+        - heading "Dashboard" [level=4] [ref=e244]
+        - paragraph [ref=e245]:
+          - strong [ref=e246]: "Purpose:"
+          - text: Primary user interface post-approval
+        - list [ref=e247]:
+          - listitem [ref=e248]:
+            - strong [ref=e249]: Metrics Grid
+            - text: — 4 key cards with staggered entrance animations
+          - listitem [ref=e250]:
+            - strong [ref=e251]: Settlement Progress Bar
+            - text: — Animated escrow accumulation tracker
+          - listitem [ref=e252]:
+            - strong [ref=e253]: Creditor Table
+            - text: — Sortable settlement status per card
+          - listitem [ref=e254]:
+            - strong [ref=e255]: Comparison Cards
+            - text: — Side-by-side "Without Settlement" vs "With DebtOptimize"
+          - listitem [ref=e256]:
+            - strong [ref=e257]: AreaChart
+            - text: — Debt balance over time with gradient fills
+        - heading "AuthModal" [level=4] [ref=e258]
+        - paragraph [ref=e259]:
+          - strong [ref=e260]: "Purpose:"
+          - text: Authentication gateway
+        - list [ref=e261]:
+          - listitem [ref=e262]:
+            - strong [ref=e263]: Google OAuth (Simulated)
+            - text: "— 4-step animation: Connecting → Verifying → Fetching → Redirecting"
+          - listitem [ref=e264]:
+            - strong [ref=e265]: Email Magic Link
+            - text: — Input validation → Loading state → "Check your inbox" confirmation
+        - heading "Calculation Engine" [level=3] [ref=e266]
+        - paragraph [ref=e267]:
+          - text: The core business logic lives in
+          - code [ref=e268]: src/data.ts
+          - text: ":"
+        - code [ref=e270]: "// Settlement savings calculation const settlement = calculateSettlementSavings(cards); // → { totalDebt, estimatedSettlement, savings, savingsPercent } // Payoff timeline comparison const comparison = calculateComparison(cards, monthlyPayment, platformFee); // → { statusQuo, platformPath, interestSaved, monthsSaved } // Weighted APR Calculation weightedAPR = Σ(balance_i × apr_i) / Σ(balance_i)"
+        - heading "Data Flow" [level=3] [ref=e271]
+        - 'img "Data flow: User Input flows to AppContext, then to Components. Components trigger Calculation Engine, which feeds Charts. AppContext also feeds Charts directly." [ref=e272]':
+          - generic [ref=e273]:
+            - img [ref=e275]
+            - generic [ref=e278]: User Input
+            - generic [ref=e279]: Forms, Sliders
+          - generic [ref=e282]:
+            - img [ref=e284]
+            - generic [ref=e286]: AppContext
+            - generic [ref=e287]: React State
+          - generic [ref=e290]:
+            - img [ref=e292]
+            - generic [ref=e297]: Components
+            - generic [ref=e298]: Re-render
+          - generic [ref=e303]:
+            - generic [ref=e304]: Calculation Engine
+            - generic [ref=e305]: Pure Functions
+          - generic [ref=e308]:
+            - img [ref=e310]
+            - generic [ref=e313]: Charts
+            - generic [ref=e314]: Recharts Visualizations
+      - separator [ref=e315]
+      - generic [ref=e316]:
+        - heading "🎨 Design System" [level=2] [ref=e317]
+        - paragraph [ref=e318]:
+          - emphasis [ref=e319]:
+            - strong [ref=e320]: Approachable authority.
+            - text: The product deals with financial stress — the design must feel warm and human while conveying competence and trustworthiness.
+        - paragraph [ref=e321]:
+          - text: "This is not a cold bank app. It is not a flashy crypto dashboard. It sits in the middle:"
+          - strong [ref=e322]: professional enough to trust, warm enough to feel like help.
+        - heading "Color Palette" [level=3] [ref=e323]
+        - heading "Primary Colors" [level=4] [ref=e324]
+        - table [ref=e326]:
+          - rowgroup [ref=e327]:
+            - row "Token Hex Usage" [ref=e328]:
+              - columnheader "Token" [ref=e329]
+              - columnheader "Hex" [ref=e330]
+              - columnheader "Usage" [ref=e331]
+          - rowgroup [ref=e332]:
+            - 'row "Navy 950 #0a0e1f Deepest backgrounds, primary text on light" [ref=e333]':
+              - cell "Navy 950" [ref=e334]:
+                - strong [ref=e335]: Navy 950
+              - cell "#0a0e1f" [ref=e336]:
+                - code [ref=e337]: "#0a0e1f"
+              - cell "Deepest backgrounds, primary text on light" [ref=e338]
+            - 'row "Navy 900 #12162b Dark sections, sidebar, headers" [ref=e339]':
+              - cell "Navy 900" [ref=e340]:
+                - strong [ref=e341]: Navy 900
+              - cell "#12162b" [ref=e342]:
+                - code [ref=e343]: "#12162b"
+              - cell "Dark sections, sidebar, headers" [ref=e344]
+            - 'row "Navy 800 #1e243d Cards on dark, hover states" [ref=e345]':
+              - cell "Navy 800" [ref=e346]:
+                - strong [ref=e347]: Navy 800
+              - cell "#1e243d" [ref=e348]:
+                - code [ref=e349]: "#1e243d"
+              - cell "Cards on dark, hover states" [ref=e350]
+            - 'row "Navy 700 #2d3554 Secondary text on dark" [ref=e351]':
+              - cell "Navy 700" [ref=e352]:
+                - strong [ref=e353]: Navy 700
+              - cell "#2d3554" [ref=e354]:
+                - code [ref=e355]: "#2d3554"
+              - cell "Secondary text on dark" [ref=e356]
+        - heading "Accent Colors" [level=4] [ref=e357]
+        - table [ref=e359]:
+          - rowgroup [ref=e360]:
+            - row "Token Hex Usage" [ref=e361]:
+              - columnheader "Token" [ref=e362]
+              - columnheader "Hex" [ref=e363]
+              - columnheader "Usage" [ref=e364]
+          - rowgroup [ref=e365]:
+            - 'row "Gold 400 #edc45a Primary CTA buttons, highlights, trust signals" [ref=e366]':
+              - cell "Gold 400" [ref=e367]:
+                - strong [ref=e368]: Gold 400
+              - cell "#edc45a" [ref=e369]:
+                - code [ref=e370]: "#edc45a"
+              - cell "Primary CTA buttons, highlights, trust signals" [ref=e371]
+            - 'row "Gold 500 #d4961e Hover states, focus rings" [ref=e372]':
+              - cell "Gold 500" [ref=e373]:
+                - strong [ref=e374]: Gold 500
+              - cell "#d4961e" [ref=e375]:
+                - code [ref=e376]: "#d4961e"
+              - cell "Hover states, focus rings" [ref=e377]
+            - 'row "Teal 500 #14b8a6 Success states, positive metrics, settlement indicators" [ref=e378]':
+              - cell "Teal 500" [ref=e379]:
+                - strong [ref=e380]: Teal 500
+              - cell "#14b8a6" [ref=e381]:
+                - code [ref=e382]: "#14b8a6"
+              - cell "Success states, positive metrics, settlement indicators" [ref=e383]
+            - 'row "Teal 400 #2dd4bf Chart lines, progress bars" [ref=e384]':
+              - cell "Teal 400" [ref=e385]:
+                - strong [ref=e386]: Teal 400
+              - cell "#2dd4bf" [ref=e387]:
+                - code [ref=e388]: "#2dd4bf"
+              - cell "Chart lines, progress bars" [ref=e389]
+        - heading "Surface Colors" [level=4] [ref=e390]
+        - table [ref=e392]:
+          - rowgroup [ref=e393]:
+            - row "Token Hex Usage" [ref=e394]:
+              - columnheader "Token" [ref=e395]
+              - columnheader "Hex" [ref=e396]
+              - columnheader "Usage" [ref=e397]
+          - rowgroup [ref=e398]:
+            - 'row "Cream 50 #fdfcfa Lightest background" [ref=e399]':
+              - cell "Cream 50" [ref=e400]:
+                - strong [ref=e401]: Cream 50
+              - cell "#fdfcfa" [ref=e402]:
+                - code [ref=e403]: "#fdfcfa"
+              - cell "Lightest background" [ref=e404]
+            - 'row "Cream 100 #faf8f5 Page background, card surfaces" [ref=e405]':
+              - cell "Cream 100" [ref=e406]:
+                - strong [ref=e407]: Cream 100
+              - cell "#faf8f5" [ref=e408]:
+                - code [ref=e409]: "#faf8f5"
+              - cell "Page background, card surfaces" [ref=e410]
+            - 'row "Cream 200 #f5f0e8 Elevated cards, hover backgrounds" [ref=e411]':
+              - cell "Cream 200" [ref=e412]:
+                - strong [ref=e413]: Cream 200
+              - cell "#f5f0e8" [ref=e414]:
+                - code [ref=e415]: "#f5f0e8"
+              - cell "Elevated cards, hover backgrounds" [ref=e416]
+            - 'row "Cream 300 #ebe4d6 Borders, dividers, disabled states" [ref=e417]':
+              - cell "Cream 300" [ref=e418]:
+                - strong [ref=e419]: Cream 300
+              - cell "#ebe4d6" [ref=e420]:
+                - code [ref=e421]: "#ebe4d6"
+              - cell "Borders, dividers, disabled states" [ref=e422]
+        - generic [ref=e423]:
+          - generic [ref=e424]: 💡 Why This Palette?
+          - list [ref=e425]:
+            - listitem [ref=e426]:
+              - strong [ref=e427]: Cream instead of white
+              - text: "— White feels sterile and corporate. Cream feels human, approachable, premium (think: high-end stationery, luxury hotels)"
+            - listitem [ref=e428]:
+              - strong [ref=e429]: Navy instead of black/gray
+              - text: — Navy conveys trust, authority, and timelessness without the harshness of pure black
+            - listitem [ref=e430]:
+              - strong [ref=e431]: Gold accent
+              - text: — Signals wealth, value, and optimism. Used sparingly for maximum impact
+            - listitem [ref=e432]:
+              - strong [ref=e433]: Teal for success
+              - text: — Distinct from generic green. Feels modern and fresh
+        - heading "Typography" [level=3] [ref=e434]
+        - paragraph [ref=e435]:
+          - strong [ref=e436]: "Font Family:"
+          - code [ref=e437]: Inter
+          - text: — chosen for excellent legibility at small sizes, variable font support, and a neutral personality.
+        - table [ref=e439]:
+          - rowgroup [ref=e440]:
+            - row "Element Size Weight Line Height Letter Spacing" [ref=e441]:
+              - columnheader "Element" [ref=e442]
+              - columnheader "Size" [ref=e443]
+              - columnheader "Weight" [ref=e444]
+              - columnheader "Line Height" [ref=e445]
+              - columnheader "Letter Spacing" [ref=e446]
+          - rowgroup [ref=e447]:
+            - row "Display 72px 700 1.1 -1.5px" [ref=e448]:
+              - cell "Display" [ref=e449]
+              - cell "72px" [ref=e450]
+              - cell "700" [ref=e451]
+              - cell "1.1" [ref=e452]
+              - cell "-1.5px" [ref=e453]
+            - row "H1 48px 700 1.15 -1px" [ref=e454]:
+              - cell "H1" [ref=e455]
+              - cell "48px" [ref=e456]
+              - cell "700" [ref=e457]
+              - cell "1.15" [ref=e458]
+              - cell "-1px" [ref=e459]
+            - row "H2 36px 700 1.2 -0.5px" [ref=e460]:
+              - cell "H2" [ref=e461]
+              - cell "36px" [ref=e462]
+              - cell "700" [ref=e463]
+              - cell "1.2" [ref=e464]
+              - cell "-0.5px" [ref=e465]
+            - row "H3 24px 600 1.3 0" [ref=e466]:
+              - cell "H3" [ref=e467]
+              - cell "24px" [ref=e468]
+              - cell "600" [ref=e469]
+              - cell "1.3" [ref=e470]
+              - cell "0" [ref=e471]
+            - row "Body Large 18px 400 1.6 0" [ref=e472]:
+              - cell "Body Large" [ref=e473]
+              - cell "18px" [ref=e474]
+              - cell "400" [ref=e475]
+              - cell "1.6" [ref=e476]
+              - cell "0" [ref=e477]
+            - row "Body 16px 400 1.5 0" [ref=e478]:
+              - cell "Body" [ref=e479]
+              - cell "16px" [ref=e480]
+              - cell "400" [ref=e481]
+              - cell "1.5" [ref=e482]
+              - cell "0" [ref=e483]
+            - row "Caption 14px 500 1.4 0" [ref=e484]:
+              - cell "Caption" [ref=e485]
+              - cell "14px" [ref=e486]
+              - cell "500" [ref=e487]
+              - cell "1.4" [ref=e488]
+              - cell "0" [ref=e489]
+            - row "Label 12px 600 1.3 0.5px (uppercase)" [ref=e490]:
+              - cell "Label" [ref=e491]
+              - cell "12px" [ref=e492]
+              - cell "600" [ref=e493]
+              - cell "1.3" [ref=e494]
+              - cell "0.5px (uppercase)" [ref=e495]
+        - heading "UI Component Patterns" [level=3] [ref=e496]
+        - heading "Cards" [level=4] [ref=e497]
+        - generic [ref=e498]: "bg: cream-50 border: 1px cream-300 border-radius: 16px padding: 24px shadow: shadow-sm hover: y: -4px shadow: shadow-lg transition: 300ms ease"
+        - heading "Buttons" [level=4] [ref=e499]
+        - paragraph [ref=e500]:
+          - strong [ref=e501]: "Primary (Gold):"
+          - text: Background
+          - code [ref=e502]: gold-500
+          - text: ", Text"
+          - code [ref=e503]: navy-950
+          - text: ", Border radius"
+          - code [ref=e504]: 12px
+          - text: ", Padding"
+          - code [ref=e505]: 16px 32px
+          - text: ", Font weight"
+          - code [ref=e506]: "700"
+          - text: ". Hover:"
+          - code [ref=e507]: scale(1.03)
+          - text: ", background"
+          - code [ref=e508]: gold-400
+          - text: .
+        - paragraph [ref=e509]:
+          - strong [ref=e510]: "Secondary (Navy):"
+          - text: Background
+          - code [ref=e511]: navy-900
+          - text: ", Text"
+          - code [ref=e512]: cream-50
+          - text: ". Hover:"
+          - code [ref=e513]: scale(1.03)
+          - text: ", background"
+          - code [ref=e514]: navy-800
+          - text: .
+        - paragraph [ref=e515]:
+          - strong [ref=e516]: "Ghost:"
+          - text: Background
+          - code [ref=e517]: transparent
+          - text: ", Border"
+          - code [ref=e518]: 1px white/10
+          - text: ", Text"
+          - code [ref=e519]: cream-50
+          - text: ". Hover:"
+          - code [ref=e520]: bg-white/10
+          - text: .
+        - heading "Inputs" [level=4] [ref=e521]
+        - generic [ref=e522]: "bg: white border: 1px cream-300 border-radius: 12px padding: 12px 16px font-size: 14px focus: border: gold-500 ring: 3px gold-500/30"
+        - heading "Animation Principles" [level=3] [ref=e523]
+        - paragraph [ref=e524]: "Every animation serves a purpose: entrance animations guide the eye, hover states provide tactile feedback, loading states manage perceived performance, and transitions maintain spatial context between views."
+        - table [ref=e526]:
+          - rowgroup [ref=e527]:
+            - row "Duration Usage" [ref=e528]:
+              - columnheader "Duration" [ref=e529]
+              - columnheader "Usage" [ref=e530]
+          - rowgroup [ref=e531]:
+            - row "150ms Micro-interactions (button press, checkbox toggle)" [ref=e532]:
+              - cell "150ms" [ref=e533]
+              - cell "Micro-interactions (button press, checkbox toggle)" [ref=e534]
+            - row "300ms Hover states, small transitions" [ref=e535]:
+              - cell "300ms" [ref=e536]
+              - cell "Hover states, small transitions" [ref=e537]
+            - row "500ms Component entrances, page transitions" [ref=e538]:
+              - cell "500ms" [ref=e539]
+              - cell "Component entrances, page transitions" [ref=e540]
+            - row "800ms Large reveals, hero animations" [ref=e541]:
+              - cell "800ms" [ref=e542]
+              - cell "Large reveals, hero animations" [ref=e543]
+            - row "1200ms Chart animations, complex sequences" [ref=e544]:
+              - cell "1200ms" [ref=e545]
+              - cell "Chart animations, complex sequences" [ref=e546]
+        - table [ref=e548]:
+          - rowgroup [ref=e549]:
+            - row "Easing Value Usage" [ref=e550]:
+              - columnheader "Easing" [ref=e551]
+              - columnheader "Value" [ref=e552]
+              - columnheader "Usage" [ref=e553]
+          - rowgroup [ref=e554]:
+            - row "Ease Out cubic-bezier(0.25, 0.46, 0.45, 0.94) Entrances, reveals" [ref=e555]:
+              - cell "Ease Out" [ref=e556]:
+                - strong [ref=e557]: Ease Out
+              - cell "cubic-bezier(0.25, 0.46, 0.45, 0.94)" [ref=e558]:
+                - code [ref=e559]: cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              - cell "Entrances, reveals" [ref=e560]
+            - 'row "Spring stiffness: 400, damping: 30 Hover effects, interactive elements" [ref=e561]':
+              - cell "Spring" [ref=e562]:
+                - strong [ref=e563]: Spring
+              - 'cell "stiffness: 400, damping: 30" [ref=e564]':
+                - code [ref=e565]: "stiffness: 400, damping: 30"
+              - cell "Hover effects, interactive elements" [ref=e566]
+            - row "Linear linear Continuous loops, loading spinners" [ref=e567]:
+              - cell "Linear" [ref=e568]:
+                - strong [ref=e569]: Linear
+              - cell "linear" [ref=e570]:
+                - code [ref=e571]: linear
+              - cell "Continuous loops, loading spinners" [ref=e572]
+        - heading "Animation Patterns" [level=4] [ref=e573]
+        - list [ref=e574]:
+          - listitem [ref=e575]:
+            - strong [ref=e576]: Staggered Children
+            - text: — Elements enter one after another (50ms delay between siblings)
+          - listitem [ref=e577]:
+            - strong [ref=e578]: Parallax Scroll
+            - text: — Hero content moves at different speed than background
+          - listitem [ref=e579]:
+            - strong [ref=e580]: Hover Lift
+            - text: — Cards translate Y -4px on hover with shadow increase
+          - listitem [ref=e581]:
+            - strong [ref=e582]: Spring Scale
+            - text: — Buttons scale to 1.03 on hover, 0.97 on press
+          - listitem [ref=e583]:
+            - strong [ref=e584]: Progressive Disclosure
+            - text: — Content reveals as user scrolls into viewport
+      - separator [ref=e585]
+      - generic [ref=e586]:
+        - heading "🚀 User Onboarding" [level=2] [ref=e587]
+        - paragraph [ref=e588]:
+          - text: The onboarding flow is the
+          - strong [ref=e589]: critical conversion funnel
+          - text: . It must build trust, collect necessary information, and deliver an approval decision — all within 3 minutes. Every step includes progress indicators, explanation of "why we need this," and reassurance about data security.
+        - heading "The 5-Step Flow" [level=3] [ref=e590]
+        - generic [ref=e591]:
+          - generic [ref=e592]:
+            - generic [ref=e593]: "1"
+            - heading "Basic Information" [level=4] [ref=e594]
+            - paragraph [ref=e595]: Name, email, DOB, SSN last-4, address. Fields grouped logically with real-time validation.
+          - generic [ref=e596]:
+            - generic [ref=e597]: "2"
+            - heading "Identity Verification" [level=4] [ref=e598]
+            - paragraph [ref=e599]: Simulated ID upload with 2.5s processing, animated spinner, and 99.7% match confidence display.
+          - generic [ref=e600]:
+            - generic [ref=e601]: "3"
+            - heading "Soft Credit Check" [level=4] [ref=e602]
+            - paragraph [ref=e603]: 3-second simulated pull. Explicit "no impact on score" messaging with estimated savings preview.
+          - generic [ref=e604]:
+            - generic [ref=e605]: "4"
+            - heading "Debt Assessment" [level=4] [ref=e606]
+            - paragraph [ref=e607]: Dynamic creditor list (add/remove). Income and expenses to calculate affordable escrow deposit.
+          - generic [ref=e608]:
+            - generic [ref=e609]: "5"
+            - heading "Eligibility Decision" [level=4] [ref=e610]
+            - paragraph [ref=e611]: Approval screen with total savings, timeline, legal protection confirmation, and "what happens next."
+        - heading "Step-by-Step Details" [level=3] [ref=e612]
+        - 'heading "Step 1: Basic Information" [level=4] [ref=e613]'
+        - table [ref=e615]:
+          - rowgroup [ref=e616]:
+            - row "Field Type Required Validation" [ref=e617]:
+              - columnheader "Field" [ref=e618]
+              - columnheader "Type" [ref=e619]
+              - columnheader "Required" [ref=e620]
+              - columnheader "Validation" [ref=e621]
+          - rowgroup [ref=e622]:
+            - row "First Name text Yes Non-empty" [ref=e623]:
+              - cell "First Name" [ref=e624]
+              - cell "text" [ref=e625]
+              - cell "Yes" [ref=e626]
+              - cell "Non-empty" [ref=e627]
+            - row "Last Name text Yes Non-empty" [ref=e628]:
+              - cell "Last Name" [ref=e629]
+              - cell "text" [ref=e630]
+              - cell "Yes" [ref=e631]
+              - cell "Non-empty" [ref=e632]
+            - row "Email email Yes Valid email format" [ref=e633]:
+              - cell "Email" [ref=e634]
+              - cell "email" [ref=e635]
+              - cell "Yes" [ref=e636]
+              - cell "Valid email format" [ref=e637]
+            - row "Phone tel Yes US phone format" [ref=e638]:
+              - cell "Phone" [ref=e639]
+              - cell "tel" [ref=e640]
+              - cell "Yes" [ref=e641]
+              - cell "US phone format" [ref=e642]
+            - row "Date of Birth date Yes 18+ years old" [ref=e643]:
+              - cell "Date of Birth" [ref=e644]
+              - cell "date" [ref=e645]
+              - cell "Yes" [ref=e646]
+              - cell "18+ years old" [ref=e647]
+            - row "SSN Last 4 password Yes 4 digits" [ref=e648]:
+              - cell "SSN Last 4" [ref=e649]
+              - cell "password" [ref=e650]
+              - cell "Yes" [ref=e651]
+              - cell "4 digits" [ref=e652]
+            - row "Street Address text Yes Non-empty" [ref=e653]:
+              - cell "Street Address" [ref=e654]
+              - cell "text" [ref=e655]
+              - cell "Yes" [ref=e656]
+              - cell "Non-empty" [ref=e657]
+            - row "City / State / ZIP text Yes Standard validation" [ref=e658]:
+              - cell "City / State / ZIP" [ref=e659]
+              - cell "text" [ref=e660]
+              - cell "Yes" [ref=e661]
+              - cell "Standard validation" [ref=e662]
+        - 'heading "Step 2: Identity Verification" [level=4] [ref=e663]'
+        - list "Identity verification process flow" [ref=e664]:
+          - listitem [ref=e665]:
+            - img [ref=e667]
+            - generic [ref=e670]:
+              - generic [ref=e671]: Simulated Upload UI
+              - generic [ref=e672]: 2.5s delay with drag-and-drop interface
+          - listitem [ref=e674]:
+            - img [ref=e676]
+            - generic [ref=e681]:
+              - generic [ref=e682]: Processing Animation
+              - generic [ref=e683]: Spinner with real-time status text updates
+          - listitem [ref=e685]:
+            - img [ref=e687]
+            - generic [ref=e690]:
+              - generic [ref=e691]: Success Screen
+              - generic [ref=e692]: "Match: 99.7% · Fraud: Pass · State: Confirmed"
+        - 'heading "Step 3: Soft Credit Check" [level=4] [ref=e693]'
+        - generic [ref=e694]:
+          - generic [ref=e695]: ⚠ Critical Messaging
+          - paragraph [ref=e696]:
+            - text: The user's
+            - strong [ref=e697]: credit score does NOT disqualify them
+            - text: ". This must be explicitly stated:"
+          - paragraph [ref=e698]: "\"Your credit score does not disqualify you. Debt settlement is specifically designed for people who cannot qualify for consolidation loans. We use this data to build your personalized negotiation strategy.\""
+        - 'heading "Step 4: Debt Assessment" [level=4] [ref=e699]'
+        - paragraph [ref=e700]: Users can add/remove credit cards dynamically. Additional fields include annual income and monthly expenses to calculate affordable escrow deposit.
+        - heading "Eligibility Criteria" [level=3] [ref=e701]
+        - paragraph [ref=e702]: "For the POC, all users are approved. In production, criteria would include:"
+        - list [ref=e703]:
+          - listitem [ref=e704]:
+            - text: "Total unsecured debt:"
+            - strong [ref=e705]: $7,500–$100,000
+          - listitem [ref=e706]:
+            - text: "Minimum monthly disposable income:"
+            - strong [ref=e707]: $200+
+          - listitem [ref=e708]: State availability (not all states allow debt settlement)
+          - listitem [ref=e709]: "Debt type: Credit cards, personal loans, medical bills (no federal student loans, no secured debt)"
+        - heading "Conversion Optimization" [level=3] [ref=e710]
+        - table [ref=e712]:
+          - rowgroup [ref=e713]:
+            - row "Drop-off Point Recovery Action" [ref=e714]:
+              - columnheader "Drop-off Point" [ref=e715]
+              - columnheader "Recovery Action" [ref=e716]
+          - rowgroup [ref=e717]:
+            - 'row "Step 1 (Basic Info) Exit-intent popup: \"Wait! Your savings estimate is almost ready.\"" [ref=e718]':
+              - cell "Step 1 (Basic Info)" [ref=e719]
+              - 'cell "Exit-intent popup: \"Wait! Your savings estimate is almost ready.\"" [ref=e720]'
+            - 'row "Step 2 (ID Verify) Email after 1 hour: \"Complete your verification in 30 seconds\"" [ref=e721]':
+              - cell "Step 2 (ID Verify)" [ref=e722]
+              - 'cell "Email after 1 hour: \"Complete your verification in 30 seconds\"" [ref=e723]'
+            - 'row "Step 3 (Credit Check) SMS after 2 hours: \"Your credit check results are waiting\"" [ref=e724]':
+              - cell "Step 3 (Credit Check)" [ref=e725]
+              - 'cell "SMS after 2 hours: \"Your credit check results are waiting\"" [ref=e726]'
+            - 'row "Step 4 (Debt Assessment) Email after 24 hours: \"You could save $XX,XXX. Finish your profile.\"" [ref=e727]':
+              - cell "Step 4 (Debt Assessment)" [ref=e728]
+              - 'cell "Email after 24 hours: \"You could save $XX,XXX. Finish your profile.\"" [ref=e729]'
+            - 'row "Post-Approval Onboarding sequence: \"Welcome to DebtOptimize. Here''s what to expect.\"" [ref=e730]':
+              - cell "Post-Approval" [ref=e731]
+              - 'cell "Onboarding sequence: \"Welcome to DebtOptimize. Here''s what to expect.\"" [ref=e732]'
+      - separator [ref=e733]
+      - generic [ref=e734]:
+        - heading "📈 Product Documentation" [level=2] [ref=e735]
+        - heading "Product Positioning" [level=3] [ref=e736]
+        - blockquote [ref=e737]:
+          - paragraph [ref=e738]:
+            - strong [ref=e739]: Debt settlement for the middle class — without the scams, hidden fees, or legal exposure.
+        - heading "The Problem" [level=4] [ref=e740]
+        - list [ref=e741]:
+          - listitem [ref=e742]:
+            - strong [ref=e743]: $1.13 trillion
+            - text: in total US credit card debt (2024)
+          - listitem [ref=e744]:
+            - text: "Average APR:"
+            - strong [ref=e745]: 24.92%
+            - text: (highest in decades)
+          - listitem [ref=e746]: Minimum payments barely cover interest — principal never decreases
+          - listitem [ref=e747]: Banks deny consolidation loans to anyone with a credit score under 670
+          - listitem [ref=e748]: Bankruptcy destroys credit for 7–10 years and carries social stigma
+          - listitem [ref=e749]: Existing debt settlement companies charge 15–25% of enrolled debt in fees
+        - heading "Target Demographic" [level=4] [ref=e750]
+        - table [ref=e752]:
+          - rowgroup [ref=e753]:
+            - row "Attribute Profile" [ref=e754]:
+              - columnheader "Attribute" [ref=e755]
+              - columnheader "Profile" [ref=e756]
+          - rowgroup [ref=e757]:
+            - row "Income $50,000–$150,000 household" [ref=e758]:
+              - cell "Income" [ref=e759]:
+                - strong [ref=e760]: Income
+              - cell "$50,000–$150,000 household" [ref=e761]
+            - row "Debt $15,000–$75,000 unsecured (credit cards, personal loans)" [ref=e762]:
+              - cell "Debt" [ref=e763]:
+                - strong [ref=e764]: Debt
+              - cell "$15,000–$75,000 unsecured (credit cards, personal loans)" [ref=e765]
+            - row "Credit Score 580–669 (Fair) — too low for consolidation, too high for bankruptcy aid" [ref=e766]:
+              - cell "Credit Score" [ref=e767]:
+                - strong [ref=e768]: Credit Score
+              - cell "580–669 (Fair) — too low for consolidation, too high for bankruptcy aid" [ref=e769]
+            - row "Age 30–55" [ref=e770]:
+              - cell "Age" [ref=e771]:
+                - strong [ref=e772]: Age
+              - cell "30–55" [ref=e773]
+            - row "Location Suburban, mid-size cities" [ref=e774]:
+              - cell "Location" [ref=e775]:
+                - strong [ref=e776]: Location
+              - cell "Suburban, mid-size cities" [ref=e777]
+            - row "Psychographic Responsible but overwhelmed. Has tried budgeting apps. Feels shame about debt. Wants a structured path out." [ref=e778]:
+              - cell "Psychographic" [ref=e779]:
+                - strong [ref=e780]: Psychographic
+              - cell "Responsible but overwhelmed. Has tried budgeting apps. Feels shame about debt. Wants a structured path out." [ref=e781]
+        - heading "Competitive Analysis" [level=3] [ref=e782]
+        - table [ref=e784]:
+          - rowgroup [ref=e785]:
+            - row "Competitor Model Fee Structure Legal Protection Our Advantage" [ref=e786]:
+              - columnheader "Competitor" [ref=e787]
+              - columnheader "Model" [ref=e788]
+              - columnheader "Fee Structure" [ref=e789]
+              - columnheader "Legal Protection" [ref=e790]
+              - columnheader "Our Advantage" [ref=e791]
+          - rowgroup [ref=e792]:
+            - row "Freedom Debt Relief Settlement 15-25% of enrolled debt No We charge less, show everything" [ref=e793]:
+              - cell "Freedom Debt Relief" [ref=e794]:
+                - strong [ref=e795]: Freedom Debt Relief
+              - cell "Settlement" [ref=e796]
+              - cell "15-25% of enrolled debt" [ref=e797]
+              - cell "No" [ref=e798]:
+                - generic [ref=e799]: "No"
+              - cell "We charge less, show everything" [ref=e800]
+            - row "National Debt Relief Settlement 18-25% of enrolled debt No We include legal protection" [ref=e801]:
+              - cell "National Debt Relief" [ref=e802]:
+                - strong [ref=e803]: National Debt Relief
+              - cell "Settlement" [ref=e804]
+              - cell "18-25% of enrolled debt" [ref=e805]
+              - cell "No" [ref=e806]:
+                - generic [ref=e807]: "No"
+              - cell "We include legal protection" [ref=e808]
+            - row "SoFi Consolidation loan Origination fees N/A They require good credit" [ref=e809]:
+              - cell "SoFi" [ref=e810]:
+                - strong [ref=e811]: SoFi
+              - cell "Consolidation loan" [ref=e812]
+              - cell "Origination fees" [ref=e813]
+              - cell "N/A" [ref=e814]:
+                - generic [ref=e815]: N/A
+              - cell "They require good credit" [ref=e816]
+            - row "LendingClub P2P consolidation Origination fees N/A They require good credit" [ref=e817]:
+              - cell "LendingClub" [ref=e818]:
+                - strong [ref=e819]: LendingClub
+              - cell "P2P consolidation" [ref=e820]
+              - cell "Origination fees" [ref=e821]
+              - cell "N/A" [ref=e822]:
+                - generic [ref=e823]: N/A
+              - cell "They require good credit" [ref=e824]
+            - row "Credit Karma Referral marketplace Free (ads) N/A They don't actually settle debt" [ref=e825]:
+              - cell "Credit Karma" [ref=e826]:
+                - strong [ref=e827]: Credit Karma
+              - cell "Referral marketplace" [ref=e828]
+              - cell "Free (ads)" [ref=e829]
+              - cell "N/A" [ref=e830]:
+                - generic [ref=e831]: N/A
+              - cell "They don't actually settle debt" [ref=e832]
+        - heading "Business Model" [level=3] [ref=e833]
+        - list "Business model flow from client deposit to settlements" [ref=e834]:
+          - paragraph [ref=e835]:
+            - strong [ref=e836]: Client enrolls $30,000 in debt
+          - listitem [ref=e837]:
+            - img [ref=e839]
+            - generic [ref=e841]:
+              - generic [ref=e842]: Monthly Deposit
+              - generic [ref=e843]: $800/mo into escrow account
+          - listitem [ref=e845]:
+            - img [ref=e847]
+            - generic [ref=e849]:
+              - generic [ref=e850]: Platform Fee
+              - generic [ref=e851]: $49/month — our revenue
+          - listitem [ref=e853]:
+            - img [ref=e855]
+            - generic [ref=e857]:
+              - generic [ref=e858]: Settlements
+              - generic [ref=e859]: Paid from accumulated escrow
+        - heading "Unit Economics (Estimate)" [level=4] [ref=e860]
+        - table [ref=e862]:
+          - rowgroup [ref=e863]:
+            - row "Metric Value" [ref=e864]:
+              - columnheader "Metric" [ref=e865]
+              - columnheader "Value" [ref=e866]
+          - rowgroup [ref=e867]:
+            - row "Average enrolled debt $32,000" [ref=e868]:
+              - cell "Average enrolled debt" [ref=e869]
+              - cell "$32,000" [ref=e870]
+            - row "Average settlement % 48% of balance" [ref=e871]:
+              - cell "Average settlement %" [ref=e872]
+              - cell "48% of balance" [ref=e873]
+            - row "Average program duration 30 months" [ref=e874]:
+              - cell "Average program duration" [ref=e875]
+              - cell "30 months" [ref=e876]
+            - row "Platform fee $49/mo × 30 = $1,470" [ref=e877]:
+              - cell "Platform fee" [ref=e878]
+              - cell "$49/mo × 30 = $1,470" [ref=e879]
+            - row "Gross revenue per client ~$1,470" [ref=e880]:
+              - cell "Gross revenue per client" [ref=e881]
+              - cell "~$1,470" [ref=e882]
+            - row "CAC (customer acquisition cost) Target <$400" [ref=e883]:
+              - cell "CAC (customer acquisition cost)" [ref=e884]
+              - cell "Target <$400" [ref=e885]
+            - row "Gross margin ~65%" [ref=e886]:
+              - cell "Gross margin" [ref=e887]
+              - cell "~65%" [ref=e888]
+        - heading "North Star Metrics" [level=4] [ref=e889]
+        - table [ref=e891]:
+          - rowgroup [ref=e892]:
+            - row "Metric Target Measurement" [ref=e893]:
+              - columnheader "Metric" [ref=e894]
+              - columnheader "Target" [ref=e895]
+              - columnheader "Measurement" [ref=e896]
+          - rowgroup [ref=e897]:
+            - row "Enrollment Rate 15% % of qualified leads who enroll" [ref=e898]:
+              - cell "Enrollment Rate" [ref=e899]:
+                - strong [ref=e900]: Enrollment Rate
+              - cell "15%" [ref=e901]
+              - cell "% of qualified leads who enroll" [ref=e902]
+            - row "Settlement Rate 85% % of enrolled debts successfully settled" [ref=e903]:
+              - cell "Settlement Rate" [ref=e904]:
+                - strong [ref=e905]: Settlement Rate
+              - cell "85%" [ref=e906]
+              - cell "% of enrolled debts successfully settled" [ref=e907]
+            - row "Avg. Reduction 50%+ % of balance saved across all clients" [ref=e908]:
+              - cell "Avg. Reduction" [ref=e909]:
+                - strong [ref=e910]: Avg. Reduction
+              - cell "50%+" [ref=e911]
+              - cell "% of balance saved across all clients" [ref=e912]
+            - row "Program Completion 70% % of clients who finish the program" [ref=e913]:
+              - cell "Program Completion" [ref=e914]:
+                - strong [ref=e915]: Program Completion
+              - cell "70%" [ref=e916]
+              - cell "% of clients who finish the program" [ref=e917]
+            - row "NPS 50+ Net Promoter Score" [ref=e918]:
+              - cell "NPS" [ref=e919]:
+                - strong [ref=e920]: NPS
+              - cell "50+" [ref=e921]
+              - cell "Net Promoter Score" [ref=e922]
+            - row "Legal Incident Rate <5% % of clients who face creditor lawsuits" [ref=e923]:
+              - cell "Legal Incident Rate" [ref=e924]:
+                - strong [ref=e925]: Legal Incident Rate
+              - cell "<5%" [ref=e926]
+              - cell "% of clients who face creditor lawsuits" [ref=e927]
+        - heading "Feature Roadmap" [level=3] [ref=e928]
+        - 'heading "Phase 1: MVP (Current POC) Complete" [level=4] [ref=e929]':
+          - text: "Phase 1: MVP (Current POC)"
+          - generic [ref=e930]: Complete
+        - list [ref=e931]:
+          - listitem [ref=e932]: ✓ Landing page with savings calculator
+          - listitem [ref=e933]: ✓ 5-step eligibility onboarding
+          - listitem [ref=e934]: ✓ Simulated auth (Google OAuth + Magic Link)
+          - listitem [ref=e935]: ✓ Dashboard with escrow tracking
+          - listitem [ref=e936]: ✓ Creditor negotiation board
+          - listitem [ref=e937]: ✓ Impact simulator with settlement sliders
+          - listitem [ref=e938]: ✓ Admin panel for rate management
+        - 'heading "Phase 2: Production Launch" [level=4] [ref=e939]'
+        - list [ref=e940]:
+          - listitem [ref=e941]: Real identity verification (Socure/Onfido integration)
+          - listitem [ref=e942]: Real soft credit pull (Experian/TransUnion API)
+          - listitem [ref=e943]: Bank account linking (Plaid integration)
+          - listitem [ref=e944]: FDIC-insured escrow account (partner bank API)
+          - listitem [ref=e945]: Real creditor negotiation workflow
+          - listitem [ref=e946]: SMS/email notification system
+          - listitem [ref=e947]: Mobile app (React Native)
+        - 'heading "Phase 3: Scale" [level=4] [ref=e948]'
+        - list [ref=e949]:
+          - listitem [ref=e950]: AI-powered negotiation strategy optimization
+          - listitem [ref=e951]: Credit rebuilding program (secured credit card partnerships)
+          - listitem [ref=e952]: Financial wellness content library
+          - listitem [ref=e953]: Referral program with incentives
+          - listitem [ref=e954]: B2B offering (employer-sponsored debt relief)
+          - listitem [ref=e955]: Multi-state expansion
+        - heading "Compliance & Legal" [level=3] [ref=e956]
+        - generic [ref=e957]:
+          - generic [ref=e958]: ⚠ Regulatory Landscape
+          - paragraph [ref=e959]: "Debt settlement is regulated at both federal and state levels:"
+          - list [ref=e960]:
+            - listitem [ref=e961]:
+              - strong [ref=e962]: "Federal:"
+              - text: FTC Telemarketing Sales Rule (TSR), CFPB oversight, no upfront fees before settlement
+            - listitem [ref=e963]:
+              - strong [ref=e964]: "State-Level:"
+              - text: Some states prohibit debt settlement entirely. Some require specific licensing. Some cap fees.
+        - heading "Required Disclaimers" [level=4] [ref=e965]
+        - blockquote [ref=e966]:
+          - paragraph [ref=e967]: "\"DebtOptimize is a debt settlement company. We do not provide loans, credit repair, or bankruptcy services. Results vary and are not guaranteed. Not available in all states.\""
+        - heading "Brand Voice" [level=4] [ref=e968]
+        - table [ref=e970]:
+          - rowgroup [ref=e971]:
+            - row "Do Don't" [ref=e972]:
+              - columnheader "Do" [ref=e973]
+              - columnheader "Don't" [ref=e974]
+          - rowgroup [ref=e975]:
+            - row "Speak like a trusted advisor Sound like a salesperson" [ref=e976]:
+              - cell "Speak like a trusted advisor" [ref=e977]
+              - cell "Sound like a salesperson" [ref=e978]
+            - row "Use \"we\" and \"our team\" Use corporate jargon" [ref=e979]:
+              - cell "Use \"we\" and \"our team\"" [ref=e980]
+              - cell "Use corporate jargon" [ref=e981]
+            - row "Acknowledge the emotional weight of debt Minimize or dismiss concerns" [ref=e982]:
+              - cell "Acknowledge the emotional weight of debt" [ref=e983]
+              - cell "Minimize or dismiss concerns" [ref=e984]
+            - row "Be specific about numbers Use vague promises (\"save thousands!\")" [ref=e985]:
+              - cell "Be specific about numbers" [ref=e986]
+              - cell "Use vague promises (\"save thousands!\")" [ref=e987]
+            - row "Empower the user Shame or blame" [ref=e988]:
+              - cell "Empower the user" [ref=e989]
+              - cell "Shame or blame" [ref=e990]
+            - row "Show real client results Use stock photos or fake testimonials" [ref=e991]:
+              - cell "Show real client results" [ref=e992]
+              - cell "Use stock photos or fake testimonials" [ref=e993]
+      - separator [ref=e994]
+      - generic [ref=e995]:
+        - heading "🚀 Deployment Guide" [level=2] [ref=e996]
+        - heading "Quick Start" [level=3] [ref=e997]
+        - heading "Prerequisites" [level=4] [ref=e998]
+        - list [ref=e999]:
+          - listitem [ref=e1000]:
+            - strong [ref=e1001]: Node.js
+            - text: 20.x or higher
+          - listitem [ref=e1002]:
+            - strong [ref=e1003]: npm
+            - text: 10.x or higher (or pnpm/yarn)
+          - listitem [ref=e1004]:
+            - strong [ref=e1005]: Git
+        - heading "Installation" [level=4] [ref=e1006]
+        - code [ref=e1008]: git clone https://github.com/your-org/debt-optimize.git cd debt-optimize npm install npm run dev
+        - paragraph [ref=e1009]:
+          - text: The development server will start at
+          - code [ref=e1010]: http://localhost:5173
+        - heading "Build Commands" [level=3] [ref=e1011]
+        - table [ref=e1013]:
+          - rowgroup [ref=e1014]:
+            - row "Command Description Output" [ref=e1015]:
+              - columnheader "Command" [ref=e1016]
+              - columnheader "Description" [ref=e1017]
+              - columnheader "Output" [ref=e1018]
+          - rowgroup [ref=e1019]:
+            - row "npm run dev Development server with HMR localhost:5173" [ref=e1020]:
+              - cell "npm run dev" [ref=e1021]:
+                - code [ref=e1022]: npm run dev
+              - cell "Development server with HMR" [ref=e1023]
+              - cell "localhost:5173" [ref=e1024]:
+                - code [ref=e1025]: localhost:5173
+            - row "npm run build Production build ./dist/" [ref=e1026]:
+              - cell "npm run build" [ref=e1027]:
+                - code [ref=e1028]: npm run build
+              - cell "Production build" [ref=e1029]
+              - cell "./dist/" [ref=e1030]:
+                - code [ref=e1031]: ./dist/
+            - row "npm run preview Preview production build locally localhost:4173" [ref=e1032]:
+              - cell "npm run preview" [ref=e1033]:
+                - code [ref=e1034]: npm run preview
+              - cell "Preview production build locally" [ref=e1035]
+              - cell "localhost:4173" [ref=e1036]:
+                - code [ref=e1037]: localhost:4173
+            - row "npm run lint Run ESLint Terminal output" [ref=e1038]:
+              - cell "npm run lint" [ref=e1039]:
+                - code [ref=e1040]: npm run lint
+              - cell "Run ESLint" [ref=e1041]
+              - cell "Terminal output" [ref=e1042]
+        - heading "Production Build Output" [level=3] [ref=e1043]
+        - tree "Production build output file structure" [ref=e1044]:
+          - treeitem "dist/" [ref=e1045]
+          - treeitem "index.html Entry HTML file" [ref=e1046]
+          - treeitem "assets/" [ref=e1047]
+          - treeitem "index-XXXXXX.js Bundled JavaScript (~800 KB / 237 KB gzipped)" [ref=e1048]
+          - treeitem "index-XXXXXX.css Bundled CSS (~49 KB / 8.8 KB gzipped)" [ref=e1049]
+          - treeitem "... Other assets" [ref=e1050]
+          - treeitem "favicon.svg" [ref=e1051]
+        - heading "Deployment Platforms" [level=3] [ref=e1052]
+        - heading "Vercel (Recommended)" [level=4] [ref=e1053]
+        - code [ref=e1055]: npm i -g vercel vercel --prod
+        - paragraph [ref=e1056]: Or connect your GitHub repository to Vercel for automatic deployments on push.
+        - heading "Netlify" [level=4] [ref=e1057]
+        - code [ref=e1059]: npm i -g netlify-cli netlify deploy --prod --dir=dist
+        - heading "AWS S3 + CloudFront" [level=4] [ref=e1060]
+        - code [ref=e1062]: npm run build aws s3 sync dist/ s3://your-bucket-name --delete aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
+        - heading "Docker" [level=4] [ref=e1063]
+        - code [ref=e1065]: "# Build and run docker build -t debt-optimize . docker run -p 8080:80 debt-optimize"
+        - heading "Environment Variables" [level=3] [ref=e1066]
+        - paragraph [ref=e1067]: "For the POC, all data is client-side. In production, these variables would be needed:"
+        - code [ref=e1069]: VITE_API_BASE_URL=https://api.debtoptimize.com VITE_AUTH_DOMAIN=auth.debtoptimize.com VITE_STRIPE_PUBLIC_KEY=pk_live_... VITE_PLAID_CLIENT_ID=... VITE_SENTRY_DSN=https://...
+        - paragraph [ref=e1070]:
+          - emphasis [ref=e1071]:
+            - text: "Note: All"
+            - code [ref=e1072]: VITE_
+            - text: prefixed variables are exposed to the client. Never store secrets here.
+        - heading "Monitoring & Security" [level=3] [ref=e1073]
+        - heading "Recommended Tools" [level=4] [ref=e1074]
+        - table [ref=e1076]:
+          - rowgroup [ref=e1077]:
+            - row "Tool Purpose" [ref=e1078]:
+              - columnheader "Tool" [ref=e1079]
+              - columnheader "Purpose" [ref=e1080]
+          - rowgroup [ref=e1081]:
+            - row "Sentry Error tracking" [ref=e1082]:
+              - cell "Sentry" [ref=e1083]:
+                - strong [ref=e1084]: Sentry
+              - cell "Error tracking" [ref=e1085]
+            - row "Google Analytics 4 User behavior" [ref=e1086]:
+              - cell "Google Analytics 4" [ref=e1087]:
+                - strong [ref=e1088]: Google Analytics 4
+              - cell "User behavior" [ref=e1089]
+            - row "Hotjar Heatmaps & recordings" [ref=e1090]:
+              - cell "Hotjar" [ref=e1091]:
+                - strong [ref=e1092]: Hotjar
+              - cell "Heatmaps & recordings" [ref=e1093]
+            - row "Vercel Analytics Web vitals" [ref=e1094]:
+              - cell "Vercel Analytics" [ref=e1095]:
+                - strong [ref=e1096]: Vercel Analytics
+              - cell "Web vitals" [ref=e1097]
+        - heading "Security Headers" [level=4] [ref=e1098]
+        - code [ref=e1100]: "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; X-Frame-Options: DENY X-Content-Type-Options: nosniff Referrer-Policy: strict-origin-when-cross-origin Permissions-Policy: geolocation=(), microphone=(), camera=()"
+        - heading "Performance Optimization Checklist" [level=4] [ref=e1101]
+        - list [ref=e1102]:
+          - listitem [ref=e1103]: ✓ Enable gzip or brotli compression on your web server
+          - listitem [ref=e1104]: "✓ Set Cache-Control headers for static assets (max-age: 31536000)"
+          - listitem [ref=e1105]: ✓ Use a CDN for global asset delivery
+          - listitem [ref=e1106]: ✓ Enable HTTP/2 or HTTP/3 on your server
+          - listitem [ref=e1107]: ✓ Add preconnect hints for external domains
+          - listitem [ref=e1108]: ✓ Implement route-based code splitting for production
+      - separator [ref=e1109]
+      - generic [ref=e1110]:
+        - heading "🔧 Tech Stack Summary" [level=2] [ref=e1111]
+        - table [ref=e1113]:
+          - rowgroup [ref=e1114]:
+            - row "Layer Technology Purpose" [ref=e1115]:
+              - columnheader "Layer" [ref=e1116]
+              - columnheader "Technology" [ref=e1117]
+              - columnheader "Purpose" [ref=e1118]
+          - rowgroup [ref=e1119]:
+            - row "Framework React 19 + TypeScript UI components with type safety" [ref=e1120]:
+              - cell "Framework" [ref=e1121]:
+                - strong [ref=e1122]: Framework
+              - cell "React 19 + TypeScript" [ref=e1123]
+              - cell "UI components with type safety" [ref=e1124]
+            - row "Build Tool Vite 8 Fast dev server & optimized builds" [ref=e1125]:
+              - cell "Build Tool" [ref=e1126]:
+                - strong [ref=e1127]: Build Tool
+              - cell "Vite 8" [ref=e1128]
+              - cell "Fast dev server & optimized builds" [ref=e1129]
+            - row "Styling Tailwind CSS v4 Utility-first CSS with custom design tokens" [ref=e1130]:
+              - cell "Styling" [ref=e1131]:
+                - strong [ref=e1132]: Styling
+              - cell "Tailwind CSS v4" [ref=e1133]
+              - cell "Utility-first CSS with custom design tokens" [ref=e1134]
+            - row "Animations Framer Motion Spring physics, gestures, AnimatePresence" [ref=e1135]:
+              - cell "Animations" [ref=e1136]:
+                - strong [ref=e1137]: Animations
+              - cell "Framer Motion" [ref=e1138]
+              - cell "Spring physics, gestures, AnimatePresence" [ref=e1139]
+            - row "Charts Recharts Interactive debt payoff visualizations" [ref=e1140]:
+              - cell "Charts" [ref=e1141]:
+                - strong [ref=e1142]: Charts
+              - cell "Recharts" [ref=e1143]
+              - cell "Interactive debt payoff visualizations" [ref=e1144]
+            - row "Icons Lucide React Clean, consistent iconography" [ref=e1145]:
+              - cell "Icons" [ref=e1146]:
+                - strong [ref=e1147]: Icons
+              - cell "Lucide React" [ref=e1148]
+              - cell "Clean, consistent iconography" [ref=e1149]
+            - row "Auth Custom simulation Google OAuth + Email Magic Link flows" [ref=e1150]:
+              - cell "Auth" [ref=e1151]:
+                - strong [ref=e1152]: Auth
+              - cell "Custom simulation" [ref=e1153]
+              - cell "Google OAuth + Email Magic Link flows" [ref=e1154]
+            - row "State React Context Lightweight global state management" [ref=e1155]:
+              - cell "State" [ref=e1156]:
+                - strong [ref=e1157]: State
+              - cell "React Context" [ref=e1158]
+              - cell "Lightweight global state management" [ref=e1159]
+      - generic [ref=e1160]:
+        - paragraph [ref=e1161]:
+          - strong [ref=e1162]: Built with precision. Designed for trust.
+        - paragraph [ref=e1163]: DebtOptimize · Same Payment, Faster Freedom
+        - paragraph [ref=e1164]:
+          - text: This document was generated on April 18, 2026 for Andrew and the DebtOptimize founding team.
+          - text: All financial projections are estimates. Not financial advice.
+  - button "Back to top": ↑
