@@ -6,6 +6,7 @@ import CustomCursor from './components/CustomCursor';
 import GrainOverlay from './components/GrainOverlay';
 import LandingPage from './components/LandingPage';
 import ChatBot from './components/ChatBot';
+import InstallPrompt from './components/InstallPrompt';
 
 const Dashboard = lazy(() => import('./components/Dashboard'));
 const Onboarding = lazy(() => import('./components/Onboarding'));
@@ -74,6 +75,7 @@ function App() {
         </Layout>
       )}
 
+      <InstallPrompt />
       <ChatBot />
     </>
   );
