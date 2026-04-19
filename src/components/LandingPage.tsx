@@ -179,7 +179,7 @@ export default function LandingPage() {
         {/* Background decorative elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-gold-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-navy-800/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-navy-800/30 rounded-full blur-3xl" />
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pt-40">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -300,7 +300,7 @@ export default function LandingPage() {
                             initial={{ width: 0 }}
                             animate={{ width: `${card.pct}%` }}
                             transition={{ delay: 1.2, duration: 1.5, ease: 'easeOut' }}
-                            className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
+                            className="h-full bg-linear-to-r from-emerald-500 to-teal-400 rounded-full"
                           />
                         </div>
                         <span className="text-xs text-emerald-400 font-medium">{card.pct}% off</span>
@@ -447,7 +447,7 @@ export default function LandingPage() {
 
       {/* Differentiators */}
       <section id="why-us" className="py-24 bg-navy-950 grain-dark relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold-500/30 to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -510,6 +510,7 @@ export default function LandingPage() {
                   step="1000"
                   value={calculatorDebt}
                   onChange={(e) => setCalculatorDebt(Number(e.target.value))}
+                  aria-label="Total unsecured debt"
                   className="w-full mb-6"
                 />
                 <div className="flex justify-between text-sm text-navy-400">
@@ -662,7 +663,7 @@ export default function LandingPage() {
 
       {/* CTA */}
       <section className="py-24 bg-navy-950 grain-dark relative">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold-500/40 to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
